@@ -1,0 +1,6 @@
+framework module Pods_URead_UReadUITests {
+  umbrella header "Pods-URead-UReadUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
