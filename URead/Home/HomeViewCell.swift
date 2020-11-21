@@ -14,7 +14,8 @@ class HomeViewCell: UITableViewCell {
 
     @IBOutlet weak var tvTitle: UILabel!
     
-
+    @IBOutlet weak var tvAuthor: UILabel!
+    
     @IBOutlet weak var tvSum: UILabel!
     
     

@@ -7,6 +7,7 @@ target 'URead' do
 pod 'FBSDKLoginKit'
 pod 'Parse'
 pod 'AlamofireImage'
+pod 'MessageInputBar'
 
   # Pods for URead
 

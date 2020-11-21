@@ -13,6 +13,9 @@ PODS:
     - FBSDKLoginKit/Login (= 8.2.0)
   - FBSDKLoginKit/Login (8.2.0):
     - FBSDKCoreKit (~> 8.2.0)
+  - MessageInputBar (0.4.1):
+    - MessageInputBar/Core (= 0.4.1)
+  - MessageInputBar/Core (0.4.1)
   - Parse (1.19.1):
     - Parse/Core (= 1.19.1)
   - Parse/Core (1.19.1):
@@ -21,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - AlamofireImage
   - FBSDKLoginKit
+  - MessageInputBar
   - Parse
 
 SPEC REPOS:
@@ -30,6 +34,7 @@ SPEC REPOS:
     - Bolts
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - MessageInputBar
     - Parse
 
 SPEC CHECKSUMS:
@@ -38,8 +43,9 @@ SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
   FBSDKLoginKit: 7181765f2524d7ebf82d9629066c8e6caafc99d0
+  MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
   Parse: e40fdb9c7d665823b7fe9865949cac9a53eb2ce7
 
-PODFILE CHECKSUM: cfc44a275a7cd02418480dc2923a8af6391867cd
+PODFILE CHECKSUM: 05d6b387699b6e646749d2070a92fc2899f9be1b
 
 COCOAPODS: 1.10.0
