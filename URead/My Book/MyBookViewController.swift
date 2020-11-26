@@ -12,21 +12,31 @@ import MessageInputBar
 
 class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var notes = [PFObject]()
+    var books = [PFObject]()
     var selectedPost:PFObject!
+    var user = PFUser.current()
 
     @IBOutlet var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let book = books[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as! MyBookCell
-        cell.myBookAuthor.text = "LILI"
-        cell.myBookSummary.text = "hahah"
-        cell.myBookTitle.text = "thisistheTitle"
+        
+        cell.myBookAuthor.text = book["author"] as? String
+        cell.myBookTitle.text = book["title"] as? String
+        cell.myBookSummary.text = book["bookSummary"] as? String
+        
+        return cell
+        
+        
+        
+//        cell.myBookAuthor.text = "LILI"
+//        cell.myBookSummary.text = "hahah"
+//        cell.myBookTitle.text = "thisistheTitle"
 //        let note = notes[indexPath.row]
 //        let user = note["id"] as! PFUser
 //
@@ -51,12 +61,12 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let query = PFQuery(className:"Notes")
-        query.includeKey("id")
+        let query = PFQuery(className:"Books")
+        query.includeKeys(["author", "UserID", "title", "bookSummary"])
         
-        query.findObjectsInBackground { (notes, error) in
-            if notes != nil {
-                self.notes = notes!
+        query.findObjectsInBackground { (books, error) in
+            if books != nil {
+                self.books = books!
                 self.tableView.reloadData()
             }
         }

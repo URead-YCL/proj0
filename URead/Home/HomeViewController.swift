@@ -9,45 +9,59 @@ import UIKit
 import AlamofireImage
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    struct Book {
+        let bookIsbn : String
+        let bookTitle: String
+        let bookAuthor: String
+        let description : String
+        let id : String
+        let bookImage: Image
+        let liked : Bool
+        let readed : Bool
+        let added: Bool
+    }
+//
     //GOODREAD
 //    key: PQFV6Jy1P6yiNCcvmzCfw
 //    secret: gks7pfrX1tJmfpFmxzTFaSiNb8SJRZxfcFWX1gtCFg
     
-    //Google
+    // Google
     // Key: AIzaSyAnDwfERI10Wm5E4LANV8SJJxuT5mL9Slo
-    //247762518399-vmngmcvib04cjdjb0o51ifaemanr21p4.apps.googleusercontent.com
+    // 247762518399-vmngmcvib04cjdjb0o51ifaemanr21p4.apps.googleusercontent.com
+    
+    //local
+    //file:///Users/CC/Desktop/books-isbn.json
+    var basicbooks = [[String:Any]]()
     var books = [[String:Any]]()
 
     
     @IBOutlet var tableView: UITableView!
     
-    
-//    "https://www.goodreads.com/search.xml?key=PQFV6Jy1P6yiNCcvmzCfw&q=Ender%27s+Game"
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=best+inauthor:keyes&key=AIzaSyAnDwfERI10Wm5E4LANV8SJJxuT5mL9Slo")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        
+        
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=a&key=AIzaSyAnDwfERI10Wm5E4LANV8SJJxuT5mL9Slo")!
+        
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
            // This will run when the network request returns
            if let error = error {
               print(error.localizedDescription)
            } else if let data = data {
-              let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-        
-
-              // TODO: Get the array of movies
+            
+            let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
             self.books = dataDictionary["items"] as! [[String:Any]]
             self.tableView.reloadData()
-//            print(self.books)
 
-        // Do any additional setup after loading the view.
            }
         }
             task.resume()
-        
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,28 +71,83 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeViewCell") as! HomeViewCell
+        let book = books[indexPath.row]
+        let base = book["volumeInfo"] as! [String:Any]
+        let id = book["id"] as! String
         
-        let movie = books[indexPath.row]
-        let base = movie["volumeInfo"] as! [String:Any]
-        let title = base["title"] as! String //["title"]
-        let authors = base["authors"] as! [String]
-        let overview = base["description"] ?? "No Description yet" //["description"]
-        let baseURL = "http://books.google.com/books/content?id="
-        let endURL = "&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-        
-        let poster = movie["id"] as! String
-        let posterURL = URL(string: baseURL + poster + endURL)!
-        let urlString = baseURL + poster + endURL
 
-        cell.ivBookpic.af_setImage(withURL: posterURL)
+        let title = base["title"] as! String
+        let authors = base["authors"] as? [String]
+        
+        let overview = base["description"] ?? "No offical description yet, view more detail on Google"
+        let imagesfirst = "http://books.google.com/books/content?id="
+        let imagelast = "&printsec=frontcover&img=1"
+        let imageUrl = URL(string: imagesfirst + id + imagelast)!
+        
+        let identifier = base["industryIdentifiers"] as! [[String:String]]
+        let isbn13 = identifier[0]["identifier"]!
+        
+        cell.ivBookpic.af_setImage(withURL: imageUrl)
         cell.tvTitle.text = title
-        cell.tvAuthor.text = authors.joined(separator:", ") 
+        if authors == nil{
+            cell.tvAuthor.text = "Unknown"
+        } else {
+            cell.tvAuthor.text = authors?.joined(separator:", ")
+        }
         cell.tvSum.text = overview as? String
+     
+     
+        
+//        cell.setAdd(books[indexPath.row]["added"] as! Bool)
+        
+//        cell.userID =  tweetArray[indexPath.row]["id"] as! Int
+//        cell.retweeted = tweetArray[indexPath.row]["retweeted"] as! Bool
+//        cell.setRe(tweetArray[indexPath.row]["retweeted"] as! Bool)
+
+     return cell
+
+        
+//        let googleBookURL = URL(string: googleFirst + isbn + googleLast)!
+        
+//        ////
+//
+//
+//        let googleRequest = URLRequest(url: googleBookURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+//        let googleTask = session.dataTask(with: googleRequest) { (data, response, error) in
+//           // This will run when the network request returns
+//           if let error = error {
+//              print(error.localizedDescription)
+//           } else if let data = data {
+//
+//            let googleBooks = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
+//            self.bookInfor = googleBooks["items"] as! [String:Any]
+//            self.tableView.reloadData()
+//
+//           }
+//        }
+//        googleTask.resume()
+//
+//
+//
+//
+//
+//        ////
         
         
+//        let overview = base["description"] ?? "No Description yet" //["description"]
+//        let endURL = "&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+//
+//        let poster = movie["id"] as! String
+//        let posterURL = URL(string: baseURL + poster + endURL)!
+//        let urlString = baseURL + poster + endURL
+//
+//        cell.ivBookpic.af_setImage(withURL: posterURL)
+//        cell.tvSum.text = overview as? String
         
-        return cell
     }
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

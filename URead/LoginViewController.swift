@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func onSignup(_ sender: Any) {
         var user = PFUser()
         user.username = tfUsername.text
