@@ -115,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				420E8F51255F907A00C06ADC /* URead */,
-				42F8F716257285770030CFE3 /* Profile */,
 				420E8F68255F907B00C06ADC /* UReadTests */,
 				420E8F73255F907B00C06ADC /* UReadUITests */,
 				420E8F50255F907A00C06ADC /* Products */,
@@ -146,6 +145,7 @@
 				420E8F5D255F907B00C06ADC /* LaunchScreen.storyboard */,
 				420E8F60255F907B00C06ADC /* Info.plist */,
 				420E8F8E255FBDBD00C06ADC /* LoginViewController.swift */,
+				42F8F716257285770030CFE3 /* Profile */,
 				420E90A92569101600C06ADC /* Home */,
 				420E90AD2569104600C06ADC /* My Book */,
 				420E90AE2569107800C06ADC /* See and Create Notes */,
