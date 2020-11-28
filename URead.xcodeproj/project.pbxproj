@@ -115,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				420E8F51255F907A00C06ADC /* URead */,
+				42F8F716257285770030CFE3 /* Profile */,
 				420E8F68255F907B00C06ADC /* UReadTests */,
 				420E8F73255F907B00C06ADC /* UReadUITests */,
 				420E8F50255F907A00C06ADC /* Products */,
@@ -197,6 +198,13 @@
 				420E9093256900E300C06ADC /* MyNoteCell.swift */,
 			);
 			path = "See and Create Notes";
+			sourceTree = "<group>";
+		};
+		42F8F716257285770030CFE3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A3CE98DBE44C7CD259A8BE0B /* Pods */ = {

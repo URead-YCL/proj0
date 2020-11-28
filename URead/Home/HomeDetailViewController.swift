@@ -20,21 +20,85 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet weak var summary: UILabel!
     
     
-    var movie: [String:Any]!
+//    var booksFound: [[String:Any]]!
+    var book: [String:Any]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bookTitle.text = movie["title"] as? String
-        summary.text = movie["overview"] as? String
+//
+        var base = book["volumeInfo"] as? [String: Any]
+//        let id = book["id"] as! String
+//        let title = base?["title"] as! String
+//        let authors = base["authors"] as! [String]
+//
+//            let overview = base["description"] ?? "No offical description yet, view more detail on Google"
+//            let imagesfirst = "http://books.google.com/books/content?id="
+//            let imagelast = "&printsec=frontcover&img=1"
+//            let imageUrl = URL(string: imagesfirst + id + imagelast)!
+//    print(imageUrl)
+//
+//            let identifier = base["industryIdentifiers"] as! [[String:String]]
+//            let isbn13 = identifier[0]["identifier"]!
+//
+//            cell.ivBookpic.af_setImage(withURL: imageUrl)
+//            cell.tvTitle.text = title
+//
+        
+//        let book = self.booksFound[indexPath.row]
+//        if let base = self.booksFound[indexPath.row]["volumeInfo"] as? [String: Any]
+        
+   
         bookTitle.sizeToFit()
         summary.sizeToFit()
+        bookAuthor.sizeToFit()
+        
+        bookTitle.text = base!["title"] as! String
+        summary.text =  base!["description"] as! String
+        
+        var author: [String]
+        if base!["authors"] == nil {
+            author = ["Unknow"]
+        } else {
+            author =  base!["authors"] as! [String]
+        }
+        bookAuthor.text = "Authors: " + author.joined(separator:", ")
         
         
-        let baseURL = "https://image.tmdb.org/t/p/w185"
+        if base!["pageCount"] == nil {
+            pageNumber.text = "Unknown Page Number"
+        } else {
+            var num = base!["pageCount"] as! Int
+            pageNumber.text = "Page Count: \(num)" as! String
+
+        if base!["ratingsCount"] == nil {
+            peoplerec.text = "Unknown # of People Recommended"
+        } else {
+            var num = base!["ratingsCount"] as! Int
+            peoplerec.text = "# Recommended: \(num)" as! String
+        }
+
+            
+    
+        if base!["averageRating"] == nil {
+            rating.text = "Unknown Rating"
+        } else {
+            let num = base!["averageRating"]!
+            rating.text = "Rating: \(num)" as! String
+            
+        }
+          
+
+
+//        @IBOutlet weak var btFinished: UIButton!
+//        @IBOutlet weak var btAdd: UIButton!
         
-        let poster = movie["poster_path"] as! String
-        let posterURL = URL(string: baseURL + poster)
+    
+        let imagesfirst = "http://books.google.com/books/content?id="
+        let imagelast = "&printsec=frontcover&img=1"
+        
+        let posterId = book["id"] as! String
+        let posterURL = URL(string: imagesfirst + posterId + imagelast)
         
         picture.af_setImage(withURL: posterURL!)
         
@@ -44,16 +108,6 @@ class HomeDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+}
 }

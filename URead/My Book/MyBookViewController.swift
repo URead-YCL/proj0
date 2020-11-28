@@ -18,6 +18,13 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet var tableView: UITableView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
@@ -31,32 +38,10 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.myBookSummary.text = book["bookSummary"] as? String
         
         return cell
-        
-        
-        
-//        cell.myBookAuthor.text = "LILI"
-//        cell.myBookSummary.text = "hahah"
-//        cell.myBookTitle.text = "thisistheTitle"
-//        let note = notes[indexPath.row]
-//        let user = note["id"] as! PFUser
-//
-//        cell.myBookSummary.text = post["caption"] as! String
-//
-//        let imageFile = post["image"] as! PFFileObject
-//        let urlString = imageFile.url!
-//        let url = URL(string: urlString)!
-//
-//        cell.photoView.af_setImage(withURL: url)
-        return cell
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
 
     }
+    
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

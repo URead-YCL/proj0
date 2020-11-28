@@ -8,7 +8,6 @@
 import UIKit
 import AlamofireImage
 
-//UITableViewDataSource
 class HomeViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -31,8 +30,6 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         let added: Bool
     }
     
-
-//
     //GOODREAD
 //    key: PQFV6Jy1P6yiNCcvmzCfw
 //    secret: gks7pfrX1tJmfpFmxzTFaSiNb8SJRZxfcFWX1gtCFg
@@ -54,140 +51,22 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         queryBooks(bookTitle: "a")
-        
-        
-//        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-//        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=a&key=AIzaSyAnDwfERI10Wm5E4LANV8SJJxuT5mL9Slo")!
-//
-//        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-//        let task = session.dataTask(with: request) { (data, response, error) in
-//           // This will run when the network request returns
-//           if let error = error {
-//              print(error.localizedDescription)
-//           } else if let data = data {
-//
-//            let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-//            self.books = dataDictionary["items"] as! [[String:Any]]
-//            self.tableView.reloadData()
-//
-//           }
-//        }
-//            task.resume()
 
     }
     
-    
-    ////////////////////
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return books.count
-//    }
-//
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeViewCell") as! HomeViewCell
-//        let book = books[indexPath.row]
-//        let base = book["volumeInfo"] as! [String:Any]
-//        let id = book["id"] as! String
-//
-//
-//        let title = base["title"] as! String
-//        let authors = base["authors"] as? [String]
-//
-//        let overview = base["description"] ?? "No offical description yet, view more detail on Google"
-//        let imagesfirst = "http://books.google.com/books/content?id="
-//        let imagelast = "&printsec=frontcover&img=1"
-//        let imageUrl = URL(string: imagesfirst + id + imagelast)!
-//
-//        let identifier = base["industryIdentifiers"] as! [[String:String]]
-//        let isbn13 = identifier[0]["identifier"]!
-//
-//        cell.ivBookpic.af_setImage(withURL: imageUrl)
-//        cell.tvTitle.text = title
-//        if authors == nil{
-//            cell.tvAuthor.text = "Unknown"
-//        } else {
-//            cell.tvAuthor.text = authors?.joined(separator:", ")
-//        }
-//        cell.tvSum.text = overview as? String
-//
-//
-//
-////        cell.setAdd(books[indexPath.row]["added"] as! Bool)
-//
-////        cell.userID =  tweetArray[indexPath.row]["id"] as! Int
-////        cell.retweeted = tweetArray[indexPath.row]["retweeted"] as! Bool
-////        cell.setRe(tweetArray[indexPath.row]["retweeted"] as! Bool)
-//
-//     return cell ///
-///////////////////////////////
-        
-//        let googleBookURL = URL(string: googleFirst + isbn + googleLast)!
-        
-//        ////
-//
-//
-//        let googleRequest = URLRequest(url: googleBookURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-//        let googleTask = session.dataTask(with: googleRequest) { (data, response, error) in
-//           // This will run when the network request returns
-//           if let error = error {
-//              print(error.localizedDescription)
-//           } else if let data = data {
-//
-//            let googleBooks = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String:Any]]
-//            self.bookInfor = googleBooks["items"] as! [String:Any]
-//            self.tableView.reloadData()
-//
-//           }
-//        }
-//        googleTask.resume()
-//
-//
-//
-//
-//
-//        ////
-        
-        
-//        let overview = base["description"] ?? "No Description yet" //["description"]
-//        let endURL = "&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-//
-//        let poster = movie["id"] as! String
-//        let posterURL = URL(string: baseURL + poster + endURL)!
-//        let urlString = baseURL + poster + endURL
-//
-//        cell.ivBookpic.af_setImage(withURL: posterURL)
-//        cell.tvSum.text = overview as? String
-        
-    }
-    
-    
-    
-    //////////////
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        let cell = sender as! UITableViewCell
-//        let indexPath = tableView.indexPath(for: cell)!
-//        let movie = books[indexPath.row]
-//        let detailsViewController = segue.destination as! HomeDetailViewController
-//        detailsViewController.movie = movie
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-    
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let book = booksFound[indexPath.row]
+        let detailsViewController = segue.destination as! HomeDetailViewController
+        detailsViewController.book = book
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
-        
-
+ 
+    
+}
 
 extension HomeViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
