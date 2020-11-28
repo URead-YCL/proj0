@@ -8,10 +8,20 @@
 import UIKit
 
 class MyBookCell: UITableViewCell {
-
+    @IBOutlet weak var addNote: UIButton!
+    @IBOutlet weak var lastTime: UILabel!
+    @IBOutlet weak var delete: UIButton!
     @IBOutlet weak var myBookTitle: UILabel!
     @IBOutlet weak var myBookAuthor: UILabel!
-    @IBOutlet weak var myBookSummary: UILabel!
+//    @IBOutlet weak var myBookSummary: UILabel!
+    
+    
+    @IBAction func deleteAll(_ sender: Any) {
+    }
+    
+    
+    @IBAction func addNewNote(_ sender: Any) {
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

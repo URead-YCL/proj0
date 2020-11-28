@@ -35,7 +35,7 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.myBookAuthor.text = book["author"] as? String
         cell.myBookTitle.text = book["title"] as? String
-        cell.myBookSummary.text = book["bookSummary"] as? String
+//        cell.myBookSummary.text = book["bookSummary"] as? String
         
         return cell
 
