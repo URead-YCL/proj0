@@ -54,7 +54,13 @@ class HomeDetailViewController: UIViewController {
         bookAuthor.sizeToFit()
         
         bookTitle.text = base!["title"] as! String
-        summary.text =  base!["description"] as! String
+        
+       
+        if base!["description"]  == nil {
+            summary.text = "Sorry! There is no description for this book yet."
+        } else {
+            summary.text =  base!["description"] as! String
+        }
         
         var author: [String]
         if base!["authors"] == nil {
