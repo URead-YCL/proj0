@@ -85,7 +85,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oou-90-3Fu"/>
-                                    <segue destination="PaA-pQ-PfF" kind="presentation" identifier="loginSegue" id="c6f-S1-XTO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,6 +94,7 @@
                     <connections>
                         <outlet property="tfPassword" destination="sLC-e6-ulk" id="Cn4-vF-44I"/>
                         <outlet property="tfUsername" destination="hIp-yi-fcf" id="jC3-fw-1Ts"/>
+                        <segue destination="PaA-pQ-PfF" kind="presentation" identifier="loginSegue" id="Na7-dc-uDj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -877,6 +877,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="PaA-pQ-PfF" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="OvK-LZ-6qL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CAc-Ec-xLw">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
