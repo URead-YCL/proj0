@@ -13,7 +13,15 @@ class MyNoteCell: UITableViewCell {
     @IBOutlet weak var lastEditTime: UILabel!
     @IBOutlet weak var chapter: UILabel!
     @IBOutlet weak var theActualNote: UILabel!
+    @IBOutlet weak var editbt: UIButton!
+    @IBOutlet weak var deletebt: UIButton!
     
+    
+    @IBAction func onEdit(_ sender: Any) {
+    }
+    
+    @IBAction func onDelete(_ sender: Any) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

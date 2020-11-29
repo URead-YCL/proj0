@@ -66,9 +66,26 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let cell = sender as! UIBarButtonItem
-        let detailsViewController = segue.destination as! NewNoteController
-        detailsViewController.book = book
+//        let cell = sender as! UIBarButtonItem
+//        let detailsViewController = segue.destination as! NewNoteController
+//        detailsViewController.book = book
+//
+        
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "addSegue":
+                let detailsViewController = segue.destination as! NewNoteController
+                detailsViewController.book = book
+            case "editSegue":
+                
+                let controller = segue.destination as! EditNoteViewController
+//                controller.history = self.history
+                
+            default: break
+                
+            }
+        }
+        
     }
 
     /*

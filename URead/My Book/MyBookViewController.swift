@@ -52,7 +52,6 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let book = books[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as! MyBookCell
-        index = cell as! UITableViewCell
         cell.myBookAuthor.text = book["author"] as? String
         cell.myBookTitle.text = book["title"] as? String
 //        cell.myBookSummary.text = book["bookSummary"] as? String

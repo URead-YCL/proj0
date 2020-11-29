@@ -244,11 +244,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyNoteCell" rowHeight="250" id="qFv-FY-nhe" customClass="MyNoteCell" customModule="URead" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyNoteCell" rowHeight="188" id="qFv-FY-nhe" customClass="MyNoteCell" customModule="URead" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qFv-FY-nhe" id="bK8-Ub-Aw7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 16, 22:41" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-JF-cbO">
@@ -257,7 +257,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am just naturally high, b/c I am just naturally high, b/c I am just naturally high." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neR-kA-tMA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am just naturally high, b/c I am just naturally high, b/c I am just naturally high." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neR-kA-tMA">
                                                     <rect key="frame" x="8" y="74.5" width="398" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -269,34 +269,65 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chapter1, Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eot-LB-9xe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Chapter1, Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eot-LB-9xe">
                                                     <rect key="frame" x="8" y="123.5" width="398" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF6-A1-aiv">
+                                                    <rect key="frame" x="8" y="152.5" width="31" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="LFW-RI-9jp"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.8980392157" green="0.38823529410000002" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" title="editNote">
+                                                        <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onEdit:" destination="qFv-FY-nhe" eventType="touchUpInside" id="oQz-OP-j3G"/>
+                                                        <segue destination="GSr-79-g6y" kind="show" identifier="editSegue" id="iyQ-5A-gcS"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIh-xv-u3X">
+                                                    <rect key="frame" x="47" y="152.5" width="35" height="25.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="nbV-CJ-amL"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="delete">
+                                                        <imageReference key="image" image="trash.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onDelete:" destination="qFv-FY-nhe" eventType="touchUpInside" id="cub-a7-jCS"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="HIf-x4-e17" secondAttribute="trailing" constant="8" id="0sJ-zO-33k"/>
-                                                <constraint firstItem="rAh-JF-cbO" firstAttribute="top" secondItem="HIf-x4-e17" secondAttribute="bottom" constant="8" id="6sv-fI-uAd"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OF6-A1-aiv" secondAttribute="bottom" constant="11.5" id="1q8-QN-H16"/>
+                                                <constraint firstItem="Eot-LB-9xe" firstAttribute="top" secondItem="neR-kA-tMA" secondAttribute="bottom" constant="8" id="7s1-G4-aw5"/>
+                                                <constraint firstItem="uIh-xv-u3X" firstAttribute="leading" secondItem="OF6-A1-aiv" secondAttribute="trailing" constant="8" id="9Ub-Q6-XKq"/>
+                                                <constraint firstItem="HIf-x4-e17" firstAttribute="top" secondItem="bK8-Ub-Aw7" secondAttribute="top" constant="8" id="EzG-fI-Odo"/>
                                                 <constraint firstItem="Eot-LB-9xe" firstAttribute="leading" secondItem="bK8-Ub-Aw7" secondAttribute="leading" constant="8" id="FEJ-V5-bmI"/>
-                                                <constraint firstItem="Eot-LB-9xe" firstAttribute="top" secondItem="neR-kA-tMA" secondAttribute="bottom" constant="8" id="O89-0d-GMh"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Eot-LB-9xe" secondAttribute="bottom" constant="8" id="R6H-IJ-kNi"/>
+                                                <constraint firstItem="OF6-A1-aiv" firstAttribute="top" secondItem="Eot-LB-9xe" secondAttribute="bottom" constant="8" id="Kzv-W6-zaw"/>
+                                                <constraint firstItem="OF6-A1-aiv" firstAttribute="leading" secondItem="bK8-Ub-Aw7" secondAttribute="leading" constant="8" id="RlR-FT-OqU"/>
                                                 <constraint firstAttribute="trailing" secondItem="rAh-JF-cbO" secondAttribute="trailing" constant="8" id="Y6n-3h-JtA"/>
                                                 <constraint firstAttribute="trailing" secondItem="neR-kA-tMA" secondAttribute="trailing" constant="8" id="Zxx-ET-8oT"/>
-                                                <constraint firstItem="HIf-x4-e17" firstAttribute="top" secondItem="bK8-Ub-Aw7" secondAttribute="top" constant="8" id="fyh-Qt-L74"/>
+                                                <constraint firstItem="rAh-JF-cbO" firstAttribute="top" secondItem="HIf-x4-e17" secondAttribute="bottom" constant="8" id="dXP-yD-JVc"/>
                                                 <constraint firstAttribute="trailing" secondItem="Eot-LB-9xe" secondAttribute="trailing" constant="8" id="hwc-A0-Rh0"/>
+                                                <constraint firstItem="uIh-xv-u3X" firstAttribute="top" secondItem="Eot-LB-9xe" secondAttribute="bottom" constant="8" id="i2G-TB-8kw"/>
                                                 <constraint firstItem="rAh-JF-cbO" firstAttribute="leading" secondItem="bK8-Ub-Aw7" secondAttribute="leading" constant="8" id="jjk-v9-T20"/>
-                                                <constraint firstItem="neR-kA-tMA" firstAttribute="top" secondItem="rAh-JF-cbO" secondAttribute="bottom" constant="8" id="lQN-Qb-baZ"/>
-                                                <constraint firstItem="neR-kA-tMA" firstAttribute="top" secondItem="rAh-JF-cbO" secondAttribute="bottom" constant="8" id="m7I-Ig-CmH"/>
-                                                <constraint firstItem="rAh-JF-cbO" firstAttribute="top" secondItem="HIf-x4-e17" secondAttribute="bottom" constant="8" id="o8q-3Q-Q1q"/>
+                                                <constraint firstItem="neR-kA-tMA" firstAttribute="top" secondItem="rAh-JF-cbO" secondAttribute="bottom" constant="8" id="lXC-yp-YGd"/>
                                                 <constraint firstItem="neR-kA-tMA" firstAttribute="leading" secondItem="bK8-Ub-Aw7" secondAttribute="leading" constant="8" id="pYE-fe-aPy"/>
-                                                <constraint firstItem="Eot-LB-9xe" firstAttribute="top" secondItem="neR-kA-tMA" secondAttribute="bottom" constant="8" id="sTE-V3-R8y"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uIh-xv-u3X" secondAttribute="bottom" constant="10" id="vUr-Zr-5K9"/>
                                                 <constraint firstItem="HIf-x4-e17" firstAttribute="leading" secondItem="bK8-Ub-Aw7" secondAttribute="leading" constant="8" id="vmK-4M-du8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chapter" destination="Eot-LB-9xe" id="bNe-k1-osI"/>
+                                            <outlet property="deletebt" destination="uIh-xv-u3X" id="QDj-CP-jX3"/>
+                                            <outlet property="editbt" destination="OF6-A1-aiv" id="NKK-8P-WJj"/>
                                             <outlet property="lastEditTime" destination="rAh-JF-cbO" id="2B1-fu-7dZ"/>
                                             <outlet property="noteTitle" destination="HIf-x4-e17" id="lPd-yn-z7F"/>
                                             <outlet property="theActualNote" destination="neR-kA-tMA" id="SGZ-7a-CC4"/>
@@ -313,7 +344,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="n9C-px-pTc"/>
                         <barButtonItem key="rightBarButtonItem" title="add" image="plus" catalog="system" id="Lhb-HN-CvA">
                             <connections>
-                                <segue destination="3q4-kw-F5i" kind="show" id="XfT-Yi-lJI"/>
+                                <segue destination="3q4-kw-F5i" kind="show" identifier="addSegue" id="XfT-Yi-lJI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -324,7 +355,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D69-oK-2Wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="2476"/>
+            <point key="canvasLocation" x="324.63768115942031" y="2475.6696428571427"/>
+        </scene>
+        <!--Edit Note View Controller-->
+        <scene sceneID="TLc-8U-Qey">
+            <objects>
+                <viewController id="GSr-79-g6y" customClass="EditNoteViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uMv-qv-UJ4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What A Great Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blP-er-t5p">
+                                <rect key="frame" x="8" y="70" width="398" height="26.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nov 16, 22:41" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9A-AG-oHX">
+                                <rect key="frame" x="8" y="104" width="398" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am just naturally high, b/c I am just naturally high, b/c I am just naturally high." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USF-5g-Xfi">
+                                <rect key="frame" x="8" y="136" width="398" height="523"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chapter1, Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71m-V0-N9h">
+                                <rect key="frame" x="8" y="667" width="398" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a1P-hk-Ol7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qZ1-jk-e8S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJr-Oc-tDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166.6666666666667" y="2475.6696428571427"/>
         </scene>
         <!--New Note Controller-->
         <scene sceneID="ru5-uD-fx1">
@@ -962,10 +1039,12 @@
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="ok-24" width="24" height="24"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil.tip.crop.circle.badge.plus" catalog="system" width="128" height="108"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="title" width="700" height="700"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
