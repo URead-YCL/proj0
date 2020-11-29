@@ -85,7 +85,6 @@ extension HomeViewController: UITableViewDataSource {
             let imagesfirst = "http://books.google.com/books/content?id="
             let imagelast = "&printsec=frontcover&img=1"
             let imageUrl = URL(string: imagesfirst + id + imagelast)!
-    print(imageUrl)
     
             let identifier = base["industryIdentifiers"] as! [[String:String]]
             let isbn13 = identifier[0]["identifier"]!

@@ -33,22 +33,38 @@ class HomeViewCell: UITableViewCell {
         }
         
         
-        let newBook = PFObject(className: "Books")
-        newBook["title"] = self.tvTitle.text!
-        newBook["author"] = self.tvAuthor.text!
-        newBook["bookSummary"] = self.tvSum.text!
-        newBook["UserID"] = PFUser.current()!
-       
-       
-        newBook.saveInBackground { (success, error) in
-            if success {
-                print("saved")
-            } else {
-                print("error saving book")
+        let query = PFQuery(className:"Books")
+        query.includeKeys(["author", "UserID", "title", "bookSummary"])
+        query.whereKey("UserID", equalTo: PFUser.current()!)
+        query.whereKey("author", equalTo: self.tvAuthor.text!)
+        query.whereKey("title", equalTo: self.tvTitle.text!)
+        query.whereKey("bookSummary", equalTo: self.tvSum.text!)
+        query.findObjectsInBackground { (objects, error) in
+            if objects == Optional([]) {
+                let newBook = PFObject(className: "Books")
+                
+                newBook["title"] = self.tvTitle.text!
+                newBook["author"] = self.tvAuthor.text!
+                newBook["bookSummary"] = self.tvSum.text!
+                newBook["UserID"] = PFUser.current()!
+               
+               
+                newBook.saveInBackground { (success, error) in
+                    if success {
+                        print("saved")
+                    } else {
+                        print("error saving book")
+                    }
+                }
+            } else if objects == nil {
+                print("hello cindy")
+                print(objects)
+                print("sorry this book already existed on your bookshelf")
+               
+            } else if error != nil {
+                print("error in finding if the book exists: \(error)")
             }
         }
-                   
-        
 // should not add twice:(((((((((  Write the DatabaseManager later
 //        let query = PFQuery(className:"Books").whereKey("author", equalTo: tvAuthor)
 ////        query.whereKey("title", equalTo: tvTitle)
