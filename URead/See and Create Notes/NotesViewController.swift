@@ -14,6 +14,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     var notes = [PFObject]()
+    var book: PFObject!
 //    var selectedPost:PFObject!
     
     override func viewDidLoad() {
@@ -24,12 +25,14 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-
-            let query = PFQuery(className:"Notes")
-            query.includeKeys(["UserID", "author", "title", "bookSummary"])
-
-            query.findObjectsInBackground { (notes, error) in
+        print("hello cindy")
+        print(book)
+        super.viewDidAppear(animated)
+        let query = PFQuery(className:"Notes")
+        query.includeKeys(["UserID", "author", "title", "bookSummary", "bookName"])
+        query.whereKey("bookName", equalTo: book)
+//        query.whereKey("UserID", equalTo: PFUser.current())
+        query.findObjectsInBackground { (notes, error) in
                 if notes != nil {
                     self.notes = notes!
                     self.tableView.reloadData()
@@ -45,7 +48,6 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyNoteCell") as! MyNoteCell
         let note = notes[indexPath.row]
-        print(indexPath.row)
 //        let user = note["id"] as! PFUser
 
         cell.noteTitle.text = note["title"] as? String
@@ -61,8 +63,13 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
 
     
-
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        let cell = sender as! UIBarButtonItem
+        let detailsViewController = segue.destination as! NewNoteController
+        detailsViewController.book = book
+    }
 
     /*
     // MARK: - Navigation

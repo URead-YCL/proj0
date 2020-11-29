@@ -13,6 +13,7 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var tvTitle: UITextField!
     @IBOutlet weak var tvNote: UITextView!
+    var book:PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
         note["title"] = tvTitle.text!
         note["content"] = tvNote.text!
         note["UserID"] = PFUser.current()!
+        note["bookName"] = book
+//        print("hello myworld!!!!!!!!!")
+//        print(book)
         
         
         note.saveInBackground { (success, error) in

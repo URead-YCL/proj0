@@ -15,6 +15,7 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var books = [PFObject]()
     var selectedPost:PFObject!
     var user = PFUser.current()
+    var index:UITableViewCell!
 
     @IBOutlet var tableView: UITableView!
     
@@ -25,6 +26,25 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let query = PFQuery(className:"Books")
+        query.includeKeys(["author", "UserID", "title", "bookSummary"])
+        query.whereKey("UserID", equalTo: PFUser.current())
+//        query.includeKeys(["author", "comments", "comments.author"])
+//        query.limit = 20
+        
+        query.findObjectsInBackground { (books, error) in
+            if books != nil {
+                self.books = books!
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
@@ -32,7 +52,7 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let book = books[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as! MyBookCell
-        
+        index = cell as! UITableViewCell
         cell.myBookAuthor.text = book["author"] as? String
         cell.myBookTitle.text = book["title"] as? String
 //        cell.myBookSummary.text = book["bookSummary"] as? String
@@ -41,23 +61,20 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
+    
+//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let book =  books[indexPath.row]
 
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let query = PFQuery(className:"Books")
-        query.includeKeys(["author", "UserID", "title", "bookSummary"])
-        
-        query.findObjectsInBackground { (books, error) in
-            if books != nil {
-                self.books = books!
-                self.tableView.reloadData()
-            }
-        }
-    
+        let detailsViewController = segue.destination as! NotesViewController
+        detailsViewController.book = book
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
 
 //    @IBAction func onLogout(_ sender: Any) {
 //        PFUser.logOut()

@@ -185,7 +185,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="addNewNote:" destination="yee-iB-opJ" eventType="touchUpInside" id="Qi1-5u-Ewr"/>
-                                                <segue destination="KoA-ij-GjQ" kind="show" id="Vm7-oB-9Hp"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -214,7 +213,7 @@
                                     <outlet property="lastTime" destination="Yjf-Xc-hKF" id="BtB-TM-Yqf"/>
                                     <outlet property="myBookAuthor" destination="aW8-iK-hbn" id="eGu-Pg-ZKJ"/>
                                     <outlet property="myBookTitle" destination="ZQK-97-26f" id="xmE-dh-Cyi"/>
-                                    <segue destination="hcq-lY-X3y" kind="presentation" id="2E1-Zm-urk"/>
+                                    <segue destination="KoA-ij-GjQ" kind="show" id="YMk-f0-VJe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -314,7 +313,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="n9C-px-pTc"/>
                         <barButtonItem key="rightBarButtonItem" title="add" image="plus" catalog="system" id="Lhb-HN-CvA">
                             <connections>
-                                <segue destination="EQJ-kw-j11" kind="presentation" id="BMU-oO-8aL"/>
+                                <segue destination="3q4-kw-F5i" kind="show" id="XfT-Yi-lJI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -325,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D69-oK-2Wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182.60869565217394" y="2477.0089285714284"/>
+            <point key="canvasLocation" x="325" y="2476"/>
         </scene>
         <!--New Note Controller-->
         <scene sceneID="ru5-uD-fx1">
@@ -341,9 +340,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-MG-yIZ">
-                                <rect key="frame" x="8" y="130" width="398" height="670"/>
+                                <rect key="frame" x="8" y="130" width="398" height="572"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -362,11 +360,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ftv-vX-jKG">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="r9o-2F-4BB">
-                            <connections>
-                                <segue destination="KoA-ij-GjQ" kind="presentation" id="zOe-Sk-qqA"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="r9o-2F-4BB"/>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="efG-UL-eDq">
                             <connections>
                                 <action selector="DoneBt:" destination="3q4-kw-F5i" id="vGb-nv-lV9"/>
@@ -634,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fjp-kS-tDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296" y="2477"/>
+            <point key="canvasLocation" x="2205.7971014492755" y="2476.3392857142858"/>
         </scene>
         <!--Home-->
         <scene sceneID="eyu-vP-9Dj">
@@ -899,30 +893,12 @@
             <point key="canvasLocation" x="687" y="86"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="SOb-OB-nWH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hcq-lY-X3y" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U11-5g-iaU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KoA-ij-GjQ" kind="relationship" relationship="rootViewController" id="Ot8-Wz-gH8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R2j-MS-CVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-767" y="2479"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="urB-YU-3zh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EQJ-kw-j11" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ubm-Q0-XUc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -953,9 +929,29 @@
             </objects>
             <point key="canvasLocation" x="2628" y="865"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pqN-4u-Jk5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oay-5H-APW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Sdj-oL-SMM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypz-iu-LuG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KoA-ij-GjQ" kind="relationship" relationship="rootViewController" id="Qnl-Pc-LcG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giY-iB-ied" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-939" y="2458"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vm7-oB-9Hp"/>
+        <segue reference="XfT-Yi-lJI"/>
+        <segue reference="YMk-f0-VJe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barcode.viewfinder" catalog="system" width="128" height="115"/>
