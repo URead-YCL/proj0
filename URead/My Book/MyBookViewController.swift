@@ -30,7 +30,7 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let book = books[indexPath.section]
+        let book = books[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as! MyBookCell
         
         cell.myBookAuthor.text = book["author"] as? String
@@ -59,13 +59,13 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
-    @IBAction func onLogout(_ sender: Any) {
-        PFUser.logOut()
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
-        let delegate = self.view.window?.windowScene?.delegate as! SceneDelegate
-        delegate.window?.rootViewController = loginViewController
-    }
+//    @IBAction func onLogout(_ sender: Any) {
+//        PFUser.logOut()
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
+//        let delegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+//        delegate.window?.rootViewController = loginViewController
+//    }
     
 
     /*

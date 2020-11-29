@@ -14,7 +14,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     var notes = [PFObject]()
-    var selectedPost:PFObject!
+//    var selectedPost:PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             super.viewDidAppear(animated)
 
             let query = PFQuery(className:"Notes")
-            query.includeKey("UserID")
+            query.includeKeys(["UserID", "author", "title", "bookSummary"])
 
             query.findObjectsInBackground { (notes, error) in
                 if notes != nil {
@@ -45,6 +45,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyNoteCell") as! MyNoteCell
         let note = notes[indexPath.row]
+        print(indexPath.row)
 //        let user = note["id"] as! PFUser
 
         cell.noteTitle.text = note["title"] as? String
