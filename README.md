@@ -30,26 +30,28 @@ Secondly, users can post reviews to their added books and share the reviews to F
 
 **Required Must-have Stories**
 
-* User use WeChat or FB account to login
-* Recommend books based on the user's previously added books
-* User can search any book by typing in keywords
-* User can click a book and see the details (rating, overview)
-* User can click the add button and add a book to bookshelf
-* User can post their review notes of a book
-* User can share their notes
+* [x] User can sign up and log in with Parse
+* [ ] User use WeChat or FB account to login
+* [ ] Recommend books based on the user's previously added books
+* [x] User can search any book by typing in keywords
+* [x] User can click a book and see the details (rating, overview)
+* [ ] User can click the add button and add a book to bookshelf
+* [ ] User can post their review notes of a book
+* [ ] User can share their notes
 
 **Optional Nice-to-have Stories**
 
-* Profile pages for each user
-* Settings (Accesibility, Notification, General, etc.)
+* [ ] Profile pages for each user
+* **X** Settings (Accesibility, Notification, General, etc.)
 
 ### 2. Screen Archetypes
 
 * Login
 * Register - User signs up or logs into their account
+    * Parse
     * WeChat, FB
 * Streams
-   * Home (book recommendation)
+   * Home (book search)
    * Bookshelf
    * Notes
 * Detail
@@ -66,7 +68,8 @@ Optional
 **Tab Navigation** (Tab to Screen)
 
 * Home
-* Booksshelf
+* My Bookshelf
+* Profile
 
 Optional
 * Settings
