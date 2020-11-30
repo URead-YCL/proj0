@@ -85,7 +85,7 @@ Optional
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://github.com/URead-YCL/proj0/blob/main/design/UIDesign11.30.jpeg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
