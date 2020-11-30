@@ -94,8 +94,29 @@ Optional
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+| Property      | Type | Description |
+| ----------- | ----------- | ----------- | 
+| objectId      | String   | id for the user post | 
+| Note   | String  | notes posted by user to a book | 
+| Added   | Boolean  | whether a book has previously been added | 
+| BooksCount   | Number  | number of books added by a user | 
+| NotesCount   | Number  | number of notes added by a user | 
+| updatedAt   | DateTime  | date when a note is last updated | 
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+* Home Screen
+   - (Read/GET) Query books from GoogleBooks API (20/time).
+   - (Create/POST) Press "+" and add the book to my bookshelf. 
+   - (Delete) Delete existing "+"
+* My bookshelf Screen
+   - (Read/GET) Query all books added by the user
+   * My notes Screen
+      - (Read/GET) Query all notes posted by the user to the book
+   * Create notes Screen
+      - (Create/POST) Create a new note
+* Profile Screen
+   - (Read/GET) Query logged in user object
+   - (Update/PUT) Update user's profile image
+
+#### [OPTIONAL:] Existing API Endpoints
+GoogleBooks: https://www.googleapis.com/books/v1/volumes?q=best+inauthor:keyes&key=AIzaSyAnDwfERI10Wm5E4LANV8SJJxuT5mL9Slo
