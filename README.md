@@ -120,3 +120,7 @@ Optional
 
 #### [OPTIONAL:] Existing API Endpoints
 GoogleBooks: https://www.googleapis.com/books/v1/volumes?q=best+inauthor:keyes&key=AIzaSyAnDwfERI10Wm5E4LANV8SJJxuT5mL9Slo
+
+###Gifs to show build progress
+[Add picture of your hand sketched wireframes in this section]
+<img src="https://s31.aconvert.com/convert/p3r68-cdx67/64nvx-wn6t9.gif" width=600>
