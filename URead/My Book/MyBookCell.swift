@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class MyBookCell: UITableViewCell {
     @IBOutlet weak var addNote: UIButton!
@@ -14,9 +15,16 @@ class MyBookCell: UITableViewCell {
     @IBOutlet weak var myBookTitle: UILabel!
     @IBOutlet weak var myBookAuthor: UILabel!
 //    @IBOutlet weak var myBookSummary: UILabel!
-    
+    var books = [PFObject]()
+    var users = PFUser.current()
     
     @IBAction func deleteAll(_ sender: Any) {
+        let query = PFQuery(className: "Books")
+        query.whereKey("title", equalTo: myBookTitle.text)
+        query.whereKey("UserID", equalTo: users)
+        query.findObjectsInBackground { (books, error) in
+            PFObject.deleteAll(inBackground: books)
+        }
     }
     
     

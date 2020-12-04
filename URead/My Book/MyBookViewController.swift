@@ -23,7 +23,6 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
     }
     
     
@@ -57,7 +56,6 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        cell.myBookSummary.text = book["bookSummary"] as? String
         
         return cell
-
     }
     
     
@@ -82,16 +80,4 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        let delegate = self.view.window?.windowScene?.delegate as! SceneDelegate
 //        delegate.window?.rootViewController = loginViewController
 //    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

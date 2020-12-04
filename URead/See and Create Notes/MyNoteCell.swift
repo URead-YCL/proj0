@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class MyNoteCell: UITableViewCell {
 
@@ -22,6 +23,7 @@ class MyNoteCell: UITableViewCell {
     
     @IBAction func onDelete(_ sender: Any) {
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

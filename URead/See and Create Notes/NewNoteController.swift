@@ -34,9 +34,6 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
         note["content"] = tvNote.text!
         note["UserID"] = PFUser.current()!
         note["bookName"] = book
-//        print("hello myworld!!!!!!!!!")
-//        print(book)
-        
         
         note.saveInBackground { (success, error) in
             if success {
@@ -47,15 +44,4 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
