@@ -113,6 +113,7 @@ class HomeViewCell: UITableViewCell {
         }
     }
     
+    //image bug
     func setAdd(_ faved: Bool) {
         added = faved
         if (added) {

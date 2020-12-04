@@ -737,7 +737,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="-2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gE1-qS-esG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="-2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gE1-qS-esG">
                                 <rect key="frame" x="8" y="62" width="176" height="221"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.8980392157" green="0.38823529410000002" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -923,11 +923,18 @@
                             <constraint firstItem="KI5-BS-QZm" firstAttribute="top" secondItem="yGt-tZ-7IV" secondAttribute="bottom" constant="8" id="zZ2-bE-FWq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="LfG-ZP-Adf"/>
+                    <navigationItem key="navigationItem" title="Profile" id="LfG-ZP-Adf">
+                        <barButtonItem key="rightBarButtonItem" title="Camera" id="qhU-4Y-Vsp">
+                            <connections>
+                                <action selector="choosePhotoSource:" destination="FBJ-vv-4oK" id="xTO-bk-7SS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bookNum" destination="yaT-ra-ovl" id="0ex-md-BKa"/>
                         <outlet property="idNum" destination="l4A-8Q-cYv" id="o7h-VL-8AY"/>
                         <outlet property="noteNum" destination="23J-HX-z4Z" id="wJF-VE-eI5"/>
+                        <outlet property="userImageView" destination="gE1-qS-esG" id="oU3-Rm-DIS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFY-zd-gmL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
