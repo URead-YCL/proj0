@@ -106,7 +106,7 @@
             <objects>
                 <viewController id="Hv7-dS-oY9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXl-ER-zBh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="IwC-a1-lcr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -122,7 +122,7 @@
             <objects>
                 <viewController id="PEV-w1-eXI" customClass="MyBookViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uu7-C8-J44">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -255,7 +255,7 @@
             <objects>
                 <viewController id="KoA-ij-GjQ" customClass="NotesViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rGA-Bg-rcg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-up-BBs">
@@ -367,7 +367,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="add" image="plus" catalog="system" id="Lhb-HN-CvA">
                             <connections>
-                                <segue destination="3q4-kw-F5i" kind="show" identifier="addSegue" id="XfT-Yi-lJI"/>
+                                <segue destination="EQJ-kw-j11" kind="presentation" identifier="addSegue" id="XUv-tL-JI5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -385,7 +385,7 @@
             <objects>
                 <viewController id="GSr-79-g6y" customClass="EditNoteViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMv-qv-UJ4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What A Great Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blP-er-t5p">
@@ -440,7 +440,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-MG-yIZ">
-                                <rect key="frame" x="8" y="130" width="398" height="572"/>
+                                <rect key="frame" x="8" y="130" width="398" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1006,7 +1006,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EQJ-kw-j11" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ubm-Q0-XUc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1058,9 +1058,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XfT-Yi-lJI"/>
-        <segue reference="YMk-f0-VJe"/>
-        <segue reference="dod-oB-w0o"/>
+        <segue reference="Qnl-Pc-LcG"/>
+        <segue reference="kcK-QM-cMX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barcode.viewfinder" catalog="system" width="128" height="115"/>

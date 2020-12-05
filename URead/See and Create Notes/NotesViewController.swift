@@ -72,8 +72,9 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if let identifier = segue.identifier {
             switch identifier {
             case "addSegue":
-                let detailsViewController = segue.destination as! NewNoteController
-                detailsViewController.book = book
+                let detailsViewController = segue.destination as! UINavigationController
+                let actualcontroller = detailsViewController.topViewController as! NewNoteController
+                actualcontroller.book = book
             case "editSegue":
                 
                 let controller = segue.destination as! EditNoteViewController
