@@ -17,6 +17,10 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var book: PFObject!
 //    var selectedPost:PFObject!
     
+
+    @IBAction func backBt(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self

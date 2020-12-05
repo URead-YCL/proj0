@@ -106,7 +106,7 @@
             <objects>
                 <viewController id="Hv7-dS-oY9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXl-ER-zBh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="IwC-a1-lcr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -122,7 +122,7 @@
             <objects>
                 <viewController id="PEV-w1-eXI" customClass="MyBookViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uu7-C8-J44">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -229,7 +229,7 @@
                                     <outlet property="lastTime" destination="Yjf-Xc-hKF" id="BtB-TM-Yqf"/>
                                     <outlet property="myBookAuthor" destination="aW8-iK-hbn" id="eGu-Pg-ZKJ"/>
                                     <outlet property="myBookTitle" destination="ZQK-97-26f" id="xmE-dh-Cyi"/>
-                                    <segue destination="KoA-ij-GjQ" kind="show" id="YMk-f0-VJe"/>
+                                    <segue destination="Oay-5H-APW" kind="presentation" id="ih5-fZ-52n"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -255,7 +255,7 @@
             <objects>
                 <viewController id="KoA-ij-GjQ" customClass="NotesViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rGA-Bg-rcg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-up-BBs">
@@ -362,7 +362,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="ntP-qF-4AH">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="n9C-px-pTc">
                             <connections>
-                                <segue destination="PEV-w1-eXI" kind="show" id="kcK-QM-cMX"/>
+                                <action selector="backBt:" destination="KoA-ij-GjQ" id="toq-Oh-UM6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="add" image="plus" catalog="system" id="Lhb-HN-CvA">
@@ -385,7 +385,7 @@
             <objects>
                 <viewController id="GSr-79-g6y" customClass="EditNoteViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uMv-qv-UJ4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What A Great Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blP-er-t5p">
@@ -460,7 +460,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ftv-vX-jKG">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="r9o-2F-4BB"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="r9o-2F-4BB">
+                            <connections>
+                                <action selector="cancelBt:" destination="3q4-kw-F5i" id="IFC-6k-wSb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="efG-UL-eDq">
                             <connections>
                                 <action selector="DoneBt:" destination="3q4-kw-F5i" id="vGb-nv-lV9"/>
@@ -1044,7 +1048,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Sdj-oL-SMM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ypz-iu-LuG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1057,10 +1061,6 @@
             <point key="canvasLocation" x="-939" y="2458"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Qnl-Pc-LcG"/>
-        <segue reference="kcK-QM-cMX"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="barcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="books.vertical" catalog="system" width="128" height="103"/>

@@ -30,6 +30,8 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.reloadData()
     }
     
+
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -72,8 +74,9 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let indexPath = tableView.indexPath(for: cell)!
         let book =  books[indexPath.row]
 
-        let detailsViewController = segue.destination as! NotesViewController
-        detailsViewController.book = book
+        let detailsViewController = segue.destination as! UINavigationController
+        let actualViewController = detailsViewController.topViewController as! NotesViewController
+        actualViewController.book = book
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

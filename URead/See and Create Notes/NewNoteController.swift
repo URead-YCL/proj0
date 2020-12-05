@@ -27,6 +27,12 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
 
     // MARK: - Table view data source
 
+    @IBAction func cancelBt(_ sender: Any) {
+        tvTitle.text = nil
+        tvNote.text = nil
+        print("cancel")
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func DoneBt(_ sender: Any) {
         let note = PFObject(className: "Notes")
