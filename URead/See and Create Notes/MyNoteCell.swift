@@ -22,6 +22,14 @@ class MyNoteCell: UITableViewCell {
     }
     
     @IBAction func onDelete(_ sender: Any) {
+        let query = PFQuery(className: "Notes")
+        query.whereKey("UserID", equalTo: PFUser.current())
+        query.whereKey("title", equalTo: noteTitle.text)
+        query.whereKey("content", contains: theActualNote.text)
+        query.findObjectsInBackground { (notes, error) in
+        PFObject.deleteAll(inBackground: notes)
+            
+        }
     }
     
     override func awakeFromNib() {

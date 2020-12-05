@@ -15,13 +15,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bookNum: UILabel!
     @IBOutlet weak var noteNum: UILabel!
     
+    var user = PFUser.current()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = PFUser.current()
         idNum.text = user?.username
-
+        let imageFile = user?["profilePic"] as! PFFileObject
+        if imageFile != nil {
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            userImageView.af_setImage(withURL: url)
+        }
+            
         // Do any additional setup after loading the view.
     }
+    
     func imagePicker(for sourceType: UIImagePickerController.SourceType)-> UIImagePickerController {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
@@ -60,6 +70,30 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let image = info[.originalImage] as! UIImage
         userImageView.image = image
+       
+        let data = image.jpegData(compressionQuality: 0.5)!
+        let file = PFFileObject(data: data, contentType: "image/jpeg")
+//        let imagedata = image.pngData()
+//        let file = PFFileObject(data: imagedata!)
+        
+        PFUser.current()?["profilePic"] = file
+        PFUser.current()?.saveInBackground(block: { (success, error) in
+            if success {
+                print("profile pic saved")
+            } else {
+                print("error saving profile_pic")
+            }
+        })
+//        self.user?.setObject(file, forKey: "profile_pic")
+//        user?.saveInBackground(block: { (success, error) in
+//            if success{
+//                self.user?.setObject(file, forKey: "profile_pic")
+//            } else {
+//                print("error saving profile_pic")
+//            }
+//        })
+ 
+        
         dismiss(animated: true, completion: nil)
     }
     

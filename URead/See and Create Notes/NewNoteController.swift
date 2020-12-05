@@ -50,5 +50,6 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
                 print("error saving")
             }
         }
+        
     }
 }

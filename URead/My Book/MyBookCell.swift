@@ -8,12 +8,9 @@
 import UIKit
 import Parse
 
-protocol cellUpdater: class { // the name of the protocol you can put any
-    func updateCell()
-}
 
 class MyBookCell: UITableViewCell {
-    weak var delegate: cellUpdater?
+    
     @IBOutlet weak var addNote: UIButton!
     @IBOutlet weak var lastTime: UILabel!
     @IBOutlet weak var delete: UIButton!
@@ -29,7 +26,6 @@ class MyBookCell: UITableViewCell {
             query.whereKey("UserID", equalTo: users)
             query.findObjectsInBackground { (books, error) in
             PFObject.deleteAll(inBackground: books)
-            self.delegate?.updateCell()
             
         }
     }

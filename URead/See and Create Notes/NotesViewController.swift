@@ -29,8 +29,6 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        print("hello cindy")
-        print(book)
         super.viewDidAppear(animated)
         let query = PFQuery(className:"Notes")
         query.includeKeys(["UserID", "author", "title", "bookSummary", "bookName"])
@@ -42,6 +40,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.tableView.reloadData()
                 }
             }
+        tableView.reloadData()
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

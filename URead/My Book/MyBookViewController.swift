@@ -10,7 +10,7 @@ import Parse
 import AlamofireImage
 import MessageInputBar
 
-class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, cellUpdater {
+class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var books = [PFObject]()
     var selectedPost:PFObject!
@@ -21,13 +21,10 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //doing
+        NotificationCenter.default.addObserver(self, selector: Selector(("reloadData:")),name:NSNotification.Name(rawValue: "reloadData"), object: nil)
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    func updateCell() {
-        super.viewDidLoad()
-        self.tableView.reloadData()
     }
     
 
@@ -59,7 +56,6 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as! MyBookCell
         cell.myBookAuthor.text = book["author"] as? String
         cell.myBookTitle.text = book["title"] as? String
-        cell.delegate = self
 //        cell.myBookSummary.text = book["bookSummary"] as? String
         
         return cell
