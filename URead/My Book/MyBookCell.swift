@@ -8,7 +8,12 @@
 import UIKit
 import Parse
 
+protocol cellUpdater: class { // the name of the protocol you can put any
+    func updateCell()
+}
+
 class MyBookCell: UITableViewCell {
+    weak var delegate: cellUpdater?
     @IBOutlet weak var addNote: UIButton!
     @IBOutlet weak var lastTime: UILabel!
     @IBOutlet weak var delete: UIButton!
@@ -19,11 +24,13 @@ class MyBookCell: UITableViewCell {
     var users = PFUser.current()
     
     @IBAction func deleteAll(_ sender: Any) {
-        let query = PFQuery(className: "Books")
-        query.whereKey("title", equalTo: myBookTitle.text)
-        query.whereKey("UserID", equalTo: users)
-        query.findObjectsInBackground { (books, error) in
+            let query = PFQuery(className: "Books")
+            query.whereKey("title", equalTo: myBookTitle.text)
+            query.whereKey("UserID", equalTo: users)
+            query.findObjectsInBackground { (books, error) in
             PFObject.deleteAll(inBackground: books)
+            self.delegate?.updateCell()
+            
         }
     }
     

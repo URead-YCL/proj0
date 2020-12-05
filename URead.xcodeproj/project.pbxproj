@@ -141,12 +141,12 @@
 		420E8F51255F907A00C06ADC /* URead */ = {
 			isa = PBXGroup;
 			children = (
+				420E8F58255F907A00C06ADC /* Main.storyboard */,
 				42F8F72E257349D70030CFE3 /* URead.entitlements */,
 				420E90BB256D086A00C06ADC /* books.json */,
 				420E90C0256D169200C06ADC /* books-isbn.json */,
 				420E8F52255F907A00C06ADC /* AppDelegate.swift */,
 				420E8F54255F907A00C06ADC /* SceneDelegate.swift */,
-				420E8F58255F907A00C06ADC /* Main.storyboard */,
 				420E8F5B255F907B00C06ADC /* Assets.xcassets */,
 				420E8F5D255F907B00C06ADC /* LaunchScreen.storyboard */,
 				420E8F60255F907B00C06ADC /* Info.plist */,

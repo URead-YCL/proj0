@@ -39,6 +39,7 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
             if success {
                 self.dismiss(animated: true, completion: nil)
                 print("saved")
+
             } else {
                 print("error saving")
             }

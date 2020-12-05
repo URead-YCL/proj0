@@ -94,12 +94,28 @@
                     <connections>
                         <outlet property="tfPassword" destination="sLC-e6-ulk" id="Cn4-vF-44I"/>
                         <outlet property="tfUsername" destination="hIp-yi-fcf" id="jC3-fw-1Ts"/>
-                        <segue destination="PaA-pQ-PfF" kind="presentation" identifier="loginSegue" id="Na7-dc-uDj"/>
+                        <segue destination="PaA-pQ-PfF" kind="showDetail" identifier="loginSegue" id="Na7-dc-uDj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-197.10144927536234" y="86.383928571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EOS-mJ-Qoq">
+            <objects>
+                <viewController id="Hv7-dS-oY9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fXl-ER-zBh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IwC-a1-lcr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nic-hM-yt6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHB-1y-Rp9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1055" y="1687"/>
         </scene>
         <!--My Bookshelf-->
         <scene sceneID="XIg-TR-UoT">
@@ -221,6 +237,9 @@
                     <navigationItem key="navigationItem" title="My Bookshelf" id="LMf-Yv-Y3t">
                         <barButtonItem key="rightBarButtonItem" title="scanner" id="cCZ-ie-GN0">
                             <imageReference key="image" image="barcode.viewfinder" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <segue destination="Hv7-dS-oY9" kind="show" id="fxB-tp-nCC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -416,12 +435,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIl-z9-z7o">
-                                <rect key="frame" x="8" y="16" width="398" height="34"/>
+                                <rect key="frame" x="8" y="72" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-MG-yIZ">
-                                <rect key="frame" x="8" y="74" width="398" height="677"/>
+                                <rect key="frame" x="8" y="130" width="398" height="572"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1041,7 +1060,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="XfT-Yi-lJI"/>
         <segue reference="YMk-f0-VJe"/>
-        <segue reference="kcK-QM-cMX"/>
+        <segue reference="dod-oB-w0o"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="barcode.viewfinder" catalog="system" width="128" height="115"/>
