@@ -18,6 +18,7 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var summary: UILabel!
+    @IBOutlet weak var closeBt: UIBarButtonItem!
     
     
 //    var booksFound: [[String:Any]]!
@@ -116,4 +117,7 @@ class HomeDetailViewController: UIViewController {
     }
 
 }
+    @IBAction func dismissPage(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

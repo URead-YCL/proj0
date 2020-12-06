@@ -60,8 +60,9 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)!
         let book = booksFound[indexPath.row]
-        let detailsViewController = segue.destination as! HomeDetailViewController
-        detailsViewController.book = book
+        let detailsViewController = segue.destination as! UINavigationController
+        let actual = detailsViewController.topViewController as! HomeDetailViewController
+        actual.book = book
         tableView.deselectRow(at: indexPath, animated: true)
     }
  
