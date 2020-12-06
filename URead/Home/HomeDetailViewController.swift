@@ -13,11 +13,14 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet weak var pageNumber: UILabel!
     @IBOutlet weak var peoplerec: UILabel!
     @IBOutlet weak var rating: UILabel!
-    @IBOutlet weak var btFinished: UIButton!
     @IBOutlet weak var btAdd: UIButton!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var summary: UILabel!
+    @IBOutlet weak var language: UILabel!
+    @IBOutlet weak var publishDate: UILabel!
+    @IBOutlet weak var categories: UILabel!
+    
     @IBOutlet weak var closeBt: UIBarButtonItem!
     
     
@@ -60,7 +63,8 @@ class HomeDetailViewController: UIViewController {
         if base!["description"]  == nil {
             summary.text = "Sorry! There is no description for this book yet."
         } else {
-            summary.text =  base!["description"] as! String
+            var helper = base!["description"] as! String
+            summary.text =  "Summary: " + helper
         }
         
         var author: [String]
@@ -94,7 +98,29 @@ class HomeDetailViewController: UIViewController {
             rating.text = "Rating: \(num)" as! String
             
         }
+            if base!["language"] == nil {
+                language.text = "Book language unknown"
+            } else {
+                var helper = base!["language"]! as! String
+                language.text = "Language: " + helper
+            }
+            
+            if base!["publishedDate"] == nil {
+                publishDate.text = "Publish date unknown"
+            } else {
+                var help = base!["publishedDate"]! as! String
+                publishDate.text = "Publish Date: " + help
+            }
+            
           
+            var cate: [String]
+            if base!["categories"] == nil {
+                cate = ["Unknow"]
+            } else {
+                cate =  base!["categories"] as! [String]
+            }
+            categories.text = "Categories: " + cate.joined(separator:", ")
+            
 
 
 //        @IBOutlet weak var btFinished: UIButton!
