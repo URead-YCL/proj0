@@ -8,6 +8,8 @@
 import UIKit
 import Parse
 
+
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var userImageView: UIImageView!
@@ -16,12 +18,56 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var noteNum: UILabel!
     
     var user = PFUser.current()
-    
+    var bookcount:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = PFUser.current()
         idNum.text = user?.username
+        
+        let query = PFQuery(className: "Books")
+        query.whereKey("UserID", equalTo: user)
+        
+        query.findObjectsInBackground { (books, error) in
+            if books == Optional([]) {
+                self.bookNum.text = "0"
+//                self.bookcount = "0"
+            } else if (books != nil) {
+                var helper = books!.count
+                self.bookNum.text = "\(helper)"
+                print(self.bookNum.text)
+            }
+            
+        }
+        let query1 = PFQuery(className: "Notes")
+        query1.whereKey("UserID", equalTo: user)
+        
+        query1.findObjectsInBackground { (notes, error) in
+            if notes == Optional([]) {
+                self.noteNum.text = "0"
+//                self.bookcount = "0"
+            } else if (notes != nil) {
+                var helper = notes!.count
+                self.noteNum.text = "\(helper)"
+                print(self.noteNum.text)
+            }
+            
+        }
+//        print(self.bookcount) self.bookcount as! String
+//        PFUser.current()?["bookNum"] = self.bookcount
+//        PFUser.current()?.saveInBackground { (success, error) in
+//                if success {
+//                    print("booknum saved")
+//                } else {
+//                    print("error saving booknum")
+//                }
+//
+//            }
+
+
+//        self.bookNum.text = self.bookcount as! String
+  
+        
         let imageFile = user?["profilePic"] as! PFFileObject
         if imageFile != nil {
             let urlString = imageFile.url!
