@@ -7,6 +7,7 @@
 
 import UIKit
 import AlamofireImage
+import Parse
 
 class HomeDetailViewController: UIViewController {
     @IBOutlet weak var picture: UIImageView!
@@ -64,7 +65,7 @@ class HomeDetailViewController: UIViewController {
             summary.text = "Sorry! There is no description for this book yet."
         } else {
             var helper = base!["description"] as! String
-            summary.text =  "Summary: " + helper
+            summary.text = helper
         }
         
         var author: [String]
@@ -73,7 +74,7 @@ class HomeDetailViewController: UIViewController {
         } else {
             author =  base!["authors"] as! [String]
         }
-        bookAuthor.text = "Authors: " + author.joined(separator:", ")
+        bookAuthor.text = author.joined(separator:", ")
         
         
         if base!["pageCount"] == nil {
@@ -119,7 +120,7 @@ class HomeDetailViewController: UIViewController {
             } else {
                 cate =  base!["categories"] as! [String]
             }
-            categories.text = "Categories: " + cate.joined(separator:", ")
+            categories.text = cate.joined(separator:", ")
             
 
 
@@ -143,6 +144,39 @@ class HomeDetailViewController: UIViewController {
     }
 
 }
+    @IBAction func onAddDetail(_ sender: Any) {
+        let query = PFQuery(className:"Books")
+        query.includeKeys(["author", "UserID", "title", "bookSummary"])
+        query.whereKey("UserID", equalTo: PFUser.current()!)
+        query.whereKey("author", equalTo: self.bookAuthor.text!)
+        query.whereKey("title", equalTo: self.bookTitle.text)
+        query.whereKey("bookSummary", equalTo: self.summary.text!)
+        query.findObjectsInBackground { (objects, error) in
+            if objects == Optional([]) {
+                let newBook = PFObject(className: "Books")
+                
+                newBook["title"] = self.bookTitle.text!
+                newBook["author"] = self.bookAuthor.text!
+                newBook["bookSummary"] = self.summary.text!
+                newBook["UserID"] = PFUser.current()!
+                newBook["TimeStamp"] = NSDate()
+               
+               
+                newBook.saveInBackground { (success, error) in
+                    if success {
+                        print("saved")
+                    } else {
+                        print("error saving book")
+                    }
+                }
+            } else if objects != nil {
+                print("sorry this book already existed on your bookshelf")
+               
+            } else if error != nil {
+                print("error in finding if the book exists: \(error)")
+            }
+        }
+    }
     @IBAction func dismissPage(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

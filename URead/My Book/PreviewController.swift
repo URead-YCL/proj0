@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class PreviewController: UIViewController {
     @IBOutlet weak var previewISBN: UILabel!
@@ -92,6 +93,39 @@ class PreviewController: UIViewController {
     
     }
 
+    @IBAction func onAddPreview(_ sender: Any) {
+        let query = PFQuery(className:"Books")
+        query.includeKeys(["author", "UserID", "title", "bookSummary"])
+        query.whereKey("UserID", equalTo: PFUser.current()!)
+        query.whereKey("author", equalTo: self.pvAuthor.text!)
+        query.whereKey("title", equalTo: self.pvTitle.text)
+        query.whereKey("bookSummary", equalTo: self.pvSummary.text!)
+        query.findObjectsInBackground { (objects, error) in
+            if objects == Optional([]) {
+                let newBook = PFObject(className: "Books")
+                
+                newBook["title"] = self.pvTitle.text!
+                newBook["author"] = self.pvAuthor.text!
+                newBook["bookSummary"] = self.pvSummary.text!
+                newBook["UserID"] = PFUser.current()!
+                newBook["TimeStamp"] = NSDate()
+               
+               
+                newBook.saveInBackground { (success, error) in
+                    if success {
+                        print("saved")
+                    } else {
+                        print("error saving book")
+                    }
+                }
+            } else if objects != nil {
+                print("sorry this book already existed on your bookshelf")
+               
+            } else if error != nil {
+                print("error in finding if the book exists: \(error)")
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

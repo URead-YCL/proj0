@@ -173,6 +173,9 @@
                                     <constraint firstAttribute="height" constant="30" id="A93-pJ-dpi"/>
                                 </constraints>
                                 <state key="normal" title="Add to Bookshelf"/>
+                                <connections>
+                                    <action selector="onAddPreview:" destination="Q1p-gP-zfp" eventType="touchUpInside" id="d1y-J0-fHp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X9f-kg-tjN"/>
@@ -325,7 +328,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="addNewNote:" destination="yee-iB-opJ" eventType="touchUpInside" id="Qi1-5u-Ewr"/>
-                                                <segue destination="Oay-5H-APW" kind="show" identifier="toNote" id="MAb-XA-Uci"/>
+                                                <segue destination="Oay-5H-APW" kind="show" id="MAb-XA-Uci"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -657,7 +660,7 @@
                                                 <constraint firstAttribute="width" constant="25" id="KY0-OE-dB9"/>
                                                 <constraint firstAttribute="height" constant="25" id="Zf2-v1-BLU"/>
                                             </constraints>
-                                            <state key="normal" title="add" image="cross" catalog="system"/>
+                                            <state key="normal" title="add" image="icons8-star"/>
                                             <connections>
                                                 <action selector="onAdd:" destination="WUn-bA-urx" eventType="touchUpInside" id="Uhu-Pw-ze5"/>
                                             </connections>
@@ -764,6 +767,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlh-BK-Yli">
                                 <rect key="frame" x="194" y="287" width="212" height="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="onAddDetail:" destination="uWp-L2-A4A" eventType="touchUpInside" id="rri-AH-KKk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cindy Chen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oby-RL-kKl">
                                 <rect key="frame" x="194" y="95" width="212" height="20.5"/>
@@ -1213,7 +1219,7 @@
         <image name="barcode.viewfinder" catalog="system" width="128" height="115"/>
         <image name="books.vertical" catalog="system" width="128" height="103"/>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
-        <image name="cross" catalog="system" width="128" height="116"/>
+        <image name="icons8-star" width="32" height="32"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>

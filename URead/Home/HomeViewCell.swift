@@ -28,7 +28,11 @@ class HomeViewCell: UITableViewCell {
         let result = !added
         if (result){
             self.setAdd(true)
+//            print("nothing")
+//            return
         } else {
+            print("no")
+            return
             self.setAdd(false)
         }
         
@@ -122,11 +126,11 @@ class HomeViewCell: UITableViewCell {
     func setAdd(_ faved: Bool) {
         added = faved
         if (added) {
-            add.setImage(UIImage(named: "plus"), for: UIControl.State.normal)
+            add.setImage(UIImage(named: "icons8-star"), for: UIControl.State.normal)
             
         }
         else{
-            add.setImage(UIImage(named: "minus"), for: UIControl.State.normal)
+            add.setImage(UIImage(named: "icons8-christmas_star"), for: UIControl.State.normal)
         }
     }
     

@@ -7,6 +7,7 @@
 
 import UIKit
 import AlamofireImage
+import Parse
 
 class HomeViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -93,6 +94,7 @@ extension HomeViewController: UITableViewDataSource {
             cell.ivBookpic.af_setImage(withURL: imageUrl)
             cell.tvTitle.text = title
             
+
             if authors == nil{
                 cell.tvAuthor.text = "Unknown"
             } else {
@@ -100,7 +102,26 @@ extension HomeViewController: UITableViewDataSource {
             }
             cell.tvSum.text = overview as? String
         
+            //check for star
+            let query = PFQuery(className:"Books")
+            query.includeKeys(["author", "UserID", "title", "bookSummary"])
+            query.whereKey("UserID", equalTo: PFUser.current()!)
+            query.whereKey("author", equalTo: cell.tvAuthor.text!)
+            query.whereKey("title", equalTo: cell.tvTitle.text!)
+            query.whereKey("bookSummary", equalTo: cell.tvSum.text!)
+            
+            query.findObjectsInBackground { (objects, error) in
+                if objects != Optional([]) {
+//                    cell.setAdd(true)
+                    print(cell.tvTitle.text!)
+                    cell.add.setImage(UIImage(named: "icons8-christmas_star"), for: UIControl.State.normal)
+                } else {
+                    cell.add.setImage(UIImage(named: "icons8-star"), for: UIControl.State.normal)
+                }
+            }
+            
         }
+            
         return cell
     }
 }
