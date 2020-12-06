@@ -27,6 +27,8 @@
 		420E90C1256D169200C06ADC /* books-isbn.json in Resources */ = {isa = PBXBuildFile; fileRef = 420E90C0256D169200C06ADC /* books-isbn.json */; };
 		42F8F71E2572A0F50030CFE3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F71D2572A0F50030CFE3 /* ProfileViewController.swift */; };
 		42F8F73B2573C3FB0030CFE3 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F73A2573C3FB0030CFE3 /* EditNoteViewController.swift */; };
+		42F8F78A257CB87F0030CFE3 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F789257CB87F0030CFE3 /* ScannerController.swift */; };
+		42F8F792257CD11C0030CFE3 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F791257CD11C0030CFE3 /* PreviewController.swift */; };
 		C10954C4D8FAE443524F63B1 /* Pods_URead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765825561D9B26BF2337730A /* Pods_URead.framework */; };
 		D3306FE12338816757420D3E /* Pods_URead_UReadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54CF87951070B3F8EEFE947 /* Pods_URead_UReadUITests.framework */; };
 		FECDFA927718E8A8C89F8C68 /* Pods_UReadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D3B91FD5A18DFC24131F226 /* Pods_UReadTests.framework */; };
@@ -81,6 +83,8 @@
 		42F8F71D2572A0F50030CFE3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		42F8F72E257349D70030CFE3 /* URead.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = URead.entitlements; sourceTree = "<group>"; };
 		42F8F73A2573C3FB0030CFE3 /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		42F8F789257CB87F0030CFE3 /* ScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
+		42F8F791257CD11C0030CFE3 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		6C523496D76E9986148AD0C1 /* Pods-URead-UReadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URead-UReadUITests.debug.xcconfig"; path = "Target Support Files/Pods-URead-UReadUITests/Pods-URead-UReadUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FE0881110BF5A0AFC45A74B /* Pods-UReadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UReadTests.debug.xcconfig"; path = "Target Support Files/Pods-UReadTests/Pods-UReadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		765825561D9B26BF2337730A /* Pods_URead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +196,8 @@
 			children = (
 				420E90502563AD4300C06ADC /* MyBookViewController.swift */,
 				420E90662568F0A600C06ADC /* MyBookCell.swift */,
+				42F8F789257CB87F0030CFE3 /* ScannerController.swift */,
+				42F8F791257CD11C0030CFE3 /* PreviewController.swift */,
 			);
 			path = "My Book";
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 				42F8F73B2573C3FB0030CFE3 /* EditNoteViewController.swift in Sources */,
 				420E90472562A08700C06ADC /* HomeDetailViewController.swift in Sources */,
 				420E8F8F255FBDBD00C06ADC /* LoginViewController.swift in Sources */,
+				42F8F792257CD11C0030CFE3 /* PreviewController.swift in Sources */,
 				420E909F256902E800C06ADC /* NotesViewController.swift in Sources */,
 				420E90672568F0A600C06ADC /* MyBookCell.swift in Sources */,
 				420E902A2562881E00C06ADC /* HomeViewCell.swift in Sources */,
@@ -490,6 +497,7 @@
 				420E9094256900E300C06ADC /* MyNoteCell.swift in Sources */,
 				420E8F55255F907A00C06ADC /* SceneDelegate.swift in Sources */,
 				420E908A2568F8A600C06ADC /* NewNoteController.swift in Sources */,
+				42F8F78A257CB87F0030CFE3 /* ScannerController.swift in Sources */,
 				420E903F2562931500C06ADC /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,7 +678,7 @@
 				CODE_SIGN_ENTITLEMENTS = URead/URead.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B92B77RZD8;
 				INFOPLIST_FILE = URead/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -693,7 +701,7 @@
 				CODE_SIGN_ENTITLEMENTS = URead/URead.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B92B77RZD8;
 				INFOPLIST_FILE = URead/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

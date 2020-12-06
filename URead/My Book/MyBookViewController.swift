@@ -12,6 +12,7 @@ import MessageInputBar
 
 class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var isbn: String = ""
     var books = [PFObject]()
     var selectedPost:PFObject!
     var user = PFUser.current()
@@ -61,19 +62,35 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    @IBAction func scanBt(_ sender: Any) {
+    }
     
 //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPath(for: cell)!
-        let book =  books[indexPath.row]
+            
+            if let identifier = segue.identifier {
+                switch identifier {
+                case "toNote":
+                    let cell = sender as! UITableViewCell
+                    let indexPath = tableView.indexPath(for: cell)!
+                    let book =  books[indexPath.row]
 
-        let detailsViewController = segue.destination as! UINavigationController
-        let actualViewController = detailsViewController.topViewController as! NotesViewController
-        actualViewController.book = book
-        tableView.deselectRow(at: indexPath, animated: true)
+                    let detailsViewController = segue.destination as! UINavigationController
+                    let actualViewController = detailsViewController.topViewController as! NotesViewController
+                    actualViewController.book = book
+                    tableView.deselectRow(at: indexPath, animated: true)
+                case "toScanner":
+                    
+                    let controller = segue.destination as! ScannerController
+    //                controller.history = self.history
+                    
+                default: break
+                    
+                }
+            }
+            
     }
 
 
