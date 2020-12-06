@@ -60,6 +60,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyNoteCell") as! MyNoteCell
+        cell.selectionStyle = .none
         let note = notes[indexPath.row]
 //        let user = note["id"] as! PFUser
 
@@ -93,9 +94,22 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let detailsViewController = segue.destination as! UINavigationController
                 let actualcontroller = detailsViewController.topViewController as! NewNoteController
                 actualcontroller.book = book
-            case "editSegue":
                 
-                let controller = segue.destination as! EditNoteViewController
+            case "editSegue":
+                let indexPath : IndexPath
+                if let button = sender as? UIButton {
+                    let cell = button.superview?.superview as! UITableViewCell
+                    let indexPath = tableView.indexPath(for: cell)!
+                    let note = notes[indexPath.row]
+                    
+                    let controller = segue.destination as! EditNoteViewController
+                    controller.note = note
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+                
+//                let cell = sender as! UITableViewCell
+//
+
 //                controller.history = self.history
                 
             default: break

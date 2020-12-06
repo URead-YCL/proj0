@@ -55,6 +55,7 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let book = books[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyBookCell") as! MyBookCell
+        cell.selectionStyle = .none
         cell.myBookAuthor.text = book["author"] as? String
         cell.myBookTitle.text = book["title"] as? String
 //        cell.myBookSummary.text = book["bookSummary"] as? String
@@ -77,14 +78,19 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let identifier = segue.identifier {
                 switch identifier {
                 case "toNote":
-                    let cell = sender as! UITableViewCell
-                    let indexPath = tableView.indexPath(for: cell)!
-                    let book =  books[indexPath.row]
+                    let indexPath : IndexPath
+                    if let button = sender as? UIButton {
+                        let cell = button.superview?.superview as! UITableViewCell
+                        let indexPath = tableView.indexPath(for: cell)!
+                        let book =  books[indexPath.row]
 
-                    let detailsViewController = segue.destination as! UINavigationController
-                    let actualViewController = detailsViewController.topViewController as! NotesViewController
-                    actualViewController.book = book
-                    tableView.deselectRow(at: indexPath, animated: true)
+                        let detailsViewController = segue.destination as! UINavigationController
+                        let actualViewController = detailsViewController.topViewController as! NotesViewController
+                        actualViewController.book = book
+                        tableView.deselectRow(at: indexPath, animated: true)
+                    }
+                    
+                    
                 case "toScanner":
                     
                     let controller = segue.destination as! ScannerController
