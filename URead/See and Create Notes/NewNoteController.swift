@@ -40,6 +40,7 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
         note["content"] = tvNote.text!
         note["UserID"] = PFUser.current()!
         note["bookName"] = book
+        note["LastEdited"] = NSDate()
         
         note.saveInBackground { (success, error) in
             if success {

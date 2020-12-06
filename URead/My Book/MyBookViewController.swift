@@ -58,6 +58,10 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.myBookAuthor.text = book["author"] as? String
         cell.myBookTitle.text = book["title"] as? String
 //        cell.myBookSummary.text = book["bookSummary"] as? String
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm, MMM dd yyyy"
+        let myStringafd = formatter.string(from: (book["TimeStamp"] as? Date)!)
+        cell.lastTime.text = myStringafd as! String
         
         return cell
     }

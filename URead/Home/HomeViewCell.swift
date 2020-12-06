@@ -32,6 +32,12 @@ class HomeViewCell: UITableViewCell {
             self.setAdd(false)
         }
         
+//        let date = NSDate()
+//        let calender = NSCalendar.current
+//        let components = calender.dateComponents([.hour, .minute, .month, .day, .year], from: date as Date)
+//        print(components.month + " / " + components.day + " / " + components.year + ", " + components.hour + ":" + components.minute)
+//
+
         
         let query = PFQuery(className:"Books")
         query.includeKeys(["author", "UserID", "title", "bookSummary"])
@@ -47,6 +53,7 @@ class HomeViewCell: UITableViewCell {
                 newBook["author"] = self.tvAuthor.text!
                 newBook["bookSummary"] = self.tvSum.text!
                 newBook["UserID"] = PFUser.current()!
+                newBook["TimeStamp"] = NSDate()
                
                
                 newBook.saveInBackground { (success, error) in
@@ -56,9 +63,7 @@ class HomeViewCell: UITableViewCell {
                         print("error saving book")
                     }
                 }
-            } else if objects == nil {
-                print("hello cindy")
-                print(objects)
+            } else if objects != nil {
                 print("sorry this book already existed on your bookshelf")
                
             } else if error != nil {

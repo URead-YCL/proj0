@@ -43,6 +43,16 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.reloadData()
         }
     
+//    func formate (NSTypeDate: NSDate){
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        let myString = formatter.string(from: Date())
+//        let yourDate = formatter.date(from: myString)
+//        formatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
+//        let myStringafd = formatter.string(from: yourDate!)
+//
+//        print(myStringafd)
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
     }
@@ -55,6 +65,11 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         cell.noteTitle.text = note["title"] as? String
         cell.theActualNote.text = note["content"] as? String
+//        print(note["LastEdited"] as? NSDate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm, MMM dd yyyy"
+        let myStringafd = formatter.string(from: (note["LastEdited"] as? Date)!)
+        cell.lastEditTime.text = myStringafd as! String
         
 //            let imageFile = post["image"] as! PFFileObject
 //            let urlString = imageFile.url!
