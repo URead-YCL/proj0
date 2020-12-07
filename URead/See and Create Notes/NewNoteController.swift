@@ -14,10 +14,12 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet weak var tvTitle: UITextField!
     @IBOutlet weak var tvNote: UITextView!
     var book:PFObject!
+    weak var delegate : NotesViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -62,7 +64,6 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
                 print("error changing book data adding")
             }
         }
-        
-        
+
     }
 }

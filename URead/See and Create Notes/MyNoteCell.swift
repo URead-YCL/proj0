@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+//weak var delegate : NotesViewController?
 
 class MyNoteCell: UITableViewCell {
 
@@ -28,7 +29,6 @@ class MyNoteCell: UITableViewCell {
         query.whereKey("content", contains: theActualNote.text)
         query.findObjectsInBackground { (notes, error) in
         PFObject.deleteAll(inBackground: notes)
-            
         }
     }
     

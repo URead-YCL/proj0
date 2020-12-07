@@ -19,20 +19,27 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var index:UITableViewCell!
 
     @IBOutlet var tableView: UITableView!
+    let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //doing
-        NotificationCenter.default.addObserver(self, selector: Selector(("reloadData:")),name:NSNotification.Name(rawValue: "reloadData"), object: nil)
         tableView.delegate = self
         tableView.dataSource = self
+        myRefreshControl.addTarget(self, action: #selector(loadBooks), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
     }
     
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.loadBooks()
+     
         
+    }
+    
+    @objc func loadBooks() {
         let query = PFQuery(className:"Books")
         query.includeKeys(["author", "UserID", "title", "bookSummary"])
         query.whereKey("UserID", equalTo: PFUser.current())
@@ -46,7 +53,8 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.tableView.reloadData()
             }
         }
-        
+        self.tableView.reloadData()
+        self.myRefreshControl.endRefreshing()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

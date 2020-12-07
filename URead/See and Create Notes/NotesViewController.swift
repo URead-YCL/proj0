@@ -19,6 +19,8 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var check : IndexPath!
 //    var selectedPost:PFObject!
     
+    let myRefreshControl = UIRefreshControl()
+    
 
     @IBAction func backBt(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -28,9 +30,18 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
+        myRefreshControl.addTarget(self, action: #selector(loadNotes), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //
+
+        self.loadNotes()
+        }
+    
+    @objc func loadNotes() {
         let query = PFQuery(className:"Notes")
         query.includeKeys(["UserID", "updatedAt", "content", "bookName"])
         query.whereKey("bookName", equalTo: book)
@@ -42,9 +53,9 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.tableView.reloadData()
                 }
             }
-        tableView.reloadData()
-        }
-    
+        self.tableView.reloadData()
+        self.myRefreshControl.endRefreshing()
+    }
 //    func formate (NSTypeDate: NSDate){
 //        let formatter = DateFormatter()
 //        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -81,6 +92,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //            cell.photoView.af_setImage(withURL: url)
             return cell
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
