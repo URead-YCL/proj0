@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bookNum: UILabel!
     @IBOutlet weak var noteNum: UILabel!
     
+    @IBOutlet weak var logout: UIButton!
     
     @IBOutlet weak var top1: UILabel!
     
@@ -33,6 +34,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut()
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
+        let delegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+        delegate.window?.rootViewController = loginViewController
+    }
     override func viewWillAppear(_ animated: Bool) {
         let user = PFUser.current()
         idNum.text = user?.username

@@ -12,22 +12,11 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="URead" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tX-im-MAq">
-                                <rect key="frame" x="20" y="712" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="wechatLogin">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="wcLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mCK-l1-hXy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL5-xU-IwZ">
                                 <rect key="frame" x="20" y="750" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,6 +79,17 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oou-90-3Fu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tX-im-MAq">
+                                <rect key="frame" x="20" y="712" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="wechatLogin">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="wcLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mCK-l1-hXy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1037,6 +1037,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuE-tl-JDn">
+                                <rect key="frame" x="192" y="93" width="214" height="32"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="FBJ-vv-4oK" eventType="touchUpInside" id="uE3-1m-IYm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vYK-Wt-0Ao"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1057,6 +1064,7 @@
                             <constraint firstItem="H69-IP-Fgf" firstAttribute="leading" secondItem="vYK-Wt-0Ao" secondAttribute="leading" constant="8" id="F6s-bb-G7I"/>
                             <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="Ga9-ki-zND" secondAttribute="trailing" constant="8" id="JHb-TF-Ga1"/>
                             <constraint firstItem="IyO-Mk-iB2" firstAttribute="top" secondItem="KI5-BS-QZm" secondAttribute="bottom" constant="8" id="JkR-EQ-egD"/>
+                            <constraint firstItem="SXS-KK-K0c" firstAttribute="top" relation="lessThanOrEqual" secondItem="CuE-tl-JDn" secondAttribute="bottom" constant="164" id="Npa-3J-Xtg"/>
                             <constraint firstItem="yGt-tZ-7IV" firstAttribute="top" secondItem="yzX-LU-X0G" secondAttribute="bottom" constant="8" id="P4f-v4-7CK"/>
                             <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="SXS-KK-K0c" secondAttribute="trailing" constant="8" id="PHP-3F-CIG"/>
                             <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="l4A-8Q-cYv" secondAttribute="trailing" constant="8" id="Q3J-6m-VFQ"/>
@@ -1066,8 +1074,11 @@
                             <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="Kzq-M0-fgM" secondAttribute="trailing" constant="8" id="WHP-hy-M6G"/>
                             <constraint firstItem="23J-HX-z4Z" firstAttribute="leading" secondItem="vYK-Wt-0Ao" secondAttribute="leading" constant="8" id="aPn-gf-pG8"/>
                             <constraint firstItem="Ga9-ki-zND" firstAttribute="leading" secondItem="IyO-Mk-iB2" secondAttribute="trailing" constant="8" id="dvf-Qr-Y2k"/>
+                            <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="CuE-tl-JDn" secondAttribute="trailing" constant="8" id="eBA-97-d1R"/>
+                            <constraint firstItem="CuE-tl-JDn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0qi-o8-VQl" secondAttribute="bottom" constant="8" id="eLJ-ed-juf"/>
                             <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="yaT-ra-ovl" secondAttribute="trailing" constant="8" id="fqV-ek-2yh"/>
                             <constraint firstItem="yaT-ra-ovl" firstAttribute="top" secondItem="SXS-KK-K0c" secondAttribute="bottom" constant="8" id="gEH-iM-Gz6"/>
+                            <constraint firstItem="CuE-tl-JDn" firstAttribute="leading" secondItem="gE1-qS-esG" secondAttribute="trailing" constant="8" id="iVo-A4-dj0"/>
                             <constraint firstItem="vYK-Wt-0Ao" firstAttribute="trailing" secondItem="H69-IP-Fgf" secondAttribute="trailing" constant="8" id="jCf-xP-ViJ"/>
                             <constraint firstItem="KI5-BS-QZm" firstAttribute="leading" secondItem="vYK-Wt-0Ao" secondAttribute="leading" constant="16" id="kPO-BL-caF"/>
                             <constraint firstItem="IyO-Mk-iB2" firstAttribute="leading" secondItem="vYK-Wt-0Ao" secondAttribute="leading" constant="16" id="kee-Z6-Bnj"/>
@@ -1092,6 +1103,7 @@
                     <connections>
                         <outlet property="bookNum" destination="yaT-ra-ovl" id="0ex-md-BKa"/>
                         <outlet property="idNum" destination="l4A-8Q-cYv" id="o7h-VL-8AY"/>
+                        <outlet property="logout" destination="CuE-tl-JDn" id="w95-xZ-7x3"/>
                         <outlet property="noteNum" destination="23J-HX-z4Z" id="wJF-VE-eI5"/>
                         <outlet property="top1" destination="Kzq-M0-fgM" id="zJn-R0-v1A"/>
                         <outlet property="top2" destination="piv-aC-vOr" id="if2-gp-qpv"/>
@@ -1101,7 +1113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFY-zd-gmL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="1687"/>
+            <point key="canvasLocation" x="2626.0869565217395" y="1686.8303571428571"/>
         </scene>
         <!--My-->
         <scene sceneID="BFT-o7-CN0">
