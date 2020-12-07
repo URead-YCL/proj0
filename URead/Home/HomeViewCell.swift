@@ -128,6 +128,7 @@ class HomeViewCell: UITableViewCell {
         if (added) {
             add.setImage(UIImage(named: "icons8-star"), for: UIControl.State.normal)
             
+            
         }
         else{
             add.setImage(UIImage(named: "icons8-christmas_star"), for: UIControl.State.normal)

@@ -29,6 +29,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let user = PFUser.current()
         idNum.text = user?.username
         
@@ -114,8 +119,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let url = URL(string: urlString)!
             userImageView.af_setImage(withURL: url)
         }
-            
-        // Do any additional setup after loading the view.
     }
     
     func imagePicker(for sourceType: UIImagePickerController.SourceType)-> UIImagePickerController {

@@ -27,8 +27,6 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        print(books)
-
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {

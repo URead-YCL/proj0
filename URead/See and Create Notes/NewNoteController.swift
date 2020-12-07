@@ -63,5 +63,6 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
             }
         }
         
+        
     }
 }
