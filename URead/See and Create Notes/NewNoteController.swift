@@ -40,7 +40,9 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
         note["content"] = tvNote.text!
         note["UserID"] = PFUser.current()!
         note["bookName"] = book
-        note["LastEdited"] = NSDate()
+        note["bookNameLiteral"] = book["title"]!
+        var key = NSDate()
+        note["LastEdited"] = key
         
         note.saveInBackground { (success, error) in
             if success {
@@ -49,6 +51,15 @@ class NewNoteController: UIViewController, UINavigationControllerDelegate{
 
             } else {
                 print("error saving")
+            }
+        }
+
+        self.book["TimeStamp"] = key
+        self.book.saveInBackground { (success, error) in
+            if success {
+                print("book data change successed adding")
+            } else {
+                print("error changing book data adding")
             }
         }
         

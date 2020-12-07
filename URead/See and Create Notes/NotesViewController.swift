@@ -15,6 +15,8 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     var notes = [PFObject]()
     var book: PFObject!
+    var books: [PFObject]!
+    var check : IndexPath!
 //    var selectedPost:PFObject!
     
 
@@ -25,15 +27,17 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        print(books)
 
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let query = PFQuery(className:"Notes")
-        query.includeKeys(["UserID", "author", "title", "bookSummary", "bookName"])
+        query.includeKeys(["UserID", "updatedAt", "content", "bookName"])
         query.whereKey("bookName", equalTo: book)
-//        query.whereKey("UserID", equalTo: PFUser.current())
+        query.whereKey("UserID", equalTo: PFUser.current())
+        query.addDescendingOrder("LastEdited")
         query.findObjectsInBackground { (notes, error) in
                 if notes != nil {
                     self.notes = notes!
@@ -94,6 +98,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let detailsViewController = segue.destination as! UINavigationController
                 let actualcontroller = detailsViewController.topViewController as! NewNoteController
                 actualcontroller.book = book
+
                 
             case "editSegue":
                 let indexPath : IndexPath

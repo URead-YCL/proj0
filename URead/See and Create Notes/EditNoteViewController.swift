@@ -19,6 +19,7 @@ class EditNoteViewController: UIViewController {
     @IBOutlet weak var noteTextEdit: UITextView!
     
     var note: PFObject!
+    var graBook: PFObject!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +37,8 @@ class EditNoteViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         note["title"] = titleEdit.text!
         note["content"] = noteTextEdit.text!
-        note["LastEdited"] = NSDate()
+        var key = NSDate()
+        note["LastEdited"] = key
         note.saveInBackground { (success, error) in
             if success {
                 print("edit successed")
@@ -44,6 +46,26 @@ class EditNoteViewController: UIViewController {
                 print("error editing note")
             }
         }
+        var bookName = note["bookNameLiteral"]
+        let query = PFQuery(className:"Books")
+        query.includeKeys(["author", "UserID", "title", "bookSummary"])
+        query.whereKey("UserID", equalTo: PFUser.current())
+        query.whereKey("title", equalTo: bookName)
+        query.findObjectsInBackground { (book, error) in
+            if book != Optional([])  {
+                var now = book![0] as! PFObject
+                self.graBook = now
+                self.graBook["TimeStamp"] = key
+                self.graBook.saveInBackground { (success, error) in
+                    if success {
+                        print("book data change successed")
+                    } else {
+                        print("error changing book data")
+                    }
+                }
+            }
+        }
+
         
     }
     /*

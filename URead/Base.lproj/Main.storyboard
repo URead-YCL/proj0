@@ -328,7 +328,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="addNewNote:" destination="yee-iB-opJ" eventType="touchUpInside" id="Qi1-5u-Ewr"/>
-                                                <segue destination="Oay-5H-APW" kind="show" id="MAb-XA-Uci"/>
+                                                <segue destination="Oay-5H-APW" kind="presentation" identifier="toNote" id="MAb-XA-Uci"/>
                                             </connections>
                                         </button>
                                     </subviews>

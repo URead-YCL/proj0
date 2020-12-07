@@ -36,11 +36,12 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let query = PFQuery(className:"Books")
         query.includeKeys(["author", "UserID", "title", "bookSummary"])
         query.whereKey("UserID", equalTo: PFUser.current())
+        query.addDescendingOrder("TimeStamp")
 //        query.includeKeys(["author", "comments", "comments.author"])
 //        query.limit = 20
         
         query.findObjectsInBackground { (books, error) in
-            if books != nil {
+            if books != nil  {
                 self.books = books!
                 self.tableView.reloadData()
             }
@@ -83,10 +84,11 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let cell = button.superview?.superview as! UITableViewCell
                         let indexPath = tableView.indexPath(for: cell)!
                         let book =  books[indexPath.row]
-
+                        print(indexPath)
                         let detailsViewController = segue.destination as! UINavigationController
                         let actualViewController = detailsViewController.topViewController as! NotesViewController
                         actualViewController.book = book
+                        actualViewController.books = books
                         tableView.deselectRow(at: indexPath, animated: true)
                     }
                     
