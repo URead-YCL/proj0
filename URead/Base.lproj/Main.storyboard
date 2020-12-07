@@ -1007,7 +1007,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harry Potter 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-M0-fgM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzq-M0-fgM">
                                 <rect key="frame" x="46" y="603" width="360" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="Mx4-Af-iGn"/>
@@ -1017,7 +1017,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game of Throne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piv-aC-vOr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piv-aC-vOr">
                                 <rect key="frame" x="46" y="647" width="360" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="MRq-H4-At4"/>
@@ -1027,7 +1027,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Prince" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-ki-zND">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-ki-zND">
                                 <rect key="frame" x="46" y="691" width="360" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="3cH-WP-LtB"/>
@@ -1093,6 +1093,9 @@
                         <outlet property="bookNum" destination="yaT-ra-ovl" id="0ex-md-BKa"/>
                         <outlet property="idNum" destination="l4A-8Q-cYv" id="o7h-VL-8AY"/>
                         <outlet property="noteNum" destination="23J-HX-z4Z" id="wJF-VE-eI5"/>
+                        <outlet property="top1" destination="Kzq-M0-fgM" id="zJn-R0-v1A"/>
+                        <outlet property="top2" destination="piv-aC-vOr" id="if2-gp-qpv"/>
+                        <outlet property="top3" destination="Ga9-ki-zND" id="cGw-Kc-itC"/>
                         <outlet property="userImageView" destination="gE1-qS-esG" id="oU3-Rm-DIS"/>
                     </connections>
                 </viewController>

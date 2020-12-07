@@ -17,6 +17,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bookNum: UILabel!
     @IBOutlet weak var noteNum: UILabel!
     
+    
+    @IBOutlet weak var top1: UILabel!
+    
+    @IBOutlet weak var top2: UILabel!
+    
+    @IBOutlet weak var top3: UILabel!
+    
     var user = PFUser.current()
     var bookcount:String = ""
     
@@ -53,6 +60,39 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
             
         }
+        
+        let query2 = PFQuery(className: "Books")
+        query2.whereKey("UserID", equalTo: user)
+        query2.addDescendingOrder("TimeStamp")
+        query2.findObjectsInBackground { (books, error) in
+            if books == Optional([]) {
+                self.top1.text = "N/A"
+                self.top2.text = "N/A"
+                self.top3.text = "N/A"
+            } else if (books!.count == 1) {
+                var helper = books![0] as! PFObject
+                self.top1.text = helper["title"] as! String
+                self.top2.text = "N/A"
+                self.top3.text = "N/A"
+            } else if (books!.count == 2) {
+                var helper = books![0] as! PFObject
+                var helper1 = books![1] as! PFObject
+                self.top1.text = helper["title"] as! String
+                self.top2.text = helper1["title"] as! String
+                self.top3.text = "N/A"
+            } else {
+                var helper = books![0] as! PFObject
+                var helper1 = books![1] as! PFObject
+                var helper2 = books![2] as! PFObject
+                self.top1.text = helper["title"] as! String
+                self.top2.text = helper1["title"] as! String
+                self.top3.text = helper2["title"] as! String
+            }
+            
+            
+        }
+        
+        
 //        print(self.bookcount) self.bookcount as! String
 //        PFUser.current()?["bookNum"] = self.bookcount
 //        PFUser.current()?.saveInBackground { (success, error) in
