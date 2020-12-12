@@ -30,7 +30,6 @@ class MyBookViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.refreshControl = myRefreshControl
     }
     
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
