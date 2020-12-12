@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var bookNum: UILabel!
     @IBOutlet weak var noteNum: UILabel!
     
+    @IBOutlet weak var friendcode: UILabel!
     @IBOutlet weak var logout: UIButton!
     
     @IBOutlet weak var top1: UILabel!
@@ -44,6 +45,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         let user = PFUser.current()
         idNum.text = user?.username
+        friendcode.text = user?.objectId
         
         let query = PFQuery(className: "Books")
         query.whereKey("UserID", equalTo: user)
