@@ -105,24 +105,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
         }
         
-        
-//        print(self.bookcount) self.bookcount as! String
-//        PFUser.current()?["bookNum"] = self.bookcount
-//        PFUser.current()?.saveInBackground { (success, error) in
-//                if success {
-//                    print("booknum saved")
-//                } else {
-//                    print("error saving booknum")
-//                }
-//
-//            }
-
-
-//        self.bookNum.text = self.bookcount as! String
-  
-        
-        let imageFile = user?["profilePic"] as! PFFileObject
-        if imageFile != nil {
+        if user?["profilePic"] != nil {
+            let imageFile = user?["profilePic"] as! PFFileObject
             let urlString = imageFile.url!
             let url = URL(string: urlString)!
             userImageView.af_setImage(withURL: url)
@@ -168,8 +152,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let image = info[.originalImage] as! UIImage
         userImageView.image = image
        
-        let data = image.jpegData(compressionQuality: 0.5)!
-        let file = PFFileObject(data: data, contentType: "image/jpeg")
+        print(image)
+        let data = image.pngData()!
+        let file = PFFileObject(data: data, contentType: "png")
 //        let imagedata = image.pngData()
 //        let file = PFFileObject(data: imagedata!)
         
@@ -181,16 +166,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("error saving profile_pic")
             }
         })
-//        self.user?.setObject(file, forKey: "profile_pic")
-//        user?.saveInBackground(block: { (success, error) in
-//            if success{
-//                self.user?.setObject(file, forKey: "profile_pic")
-//            } else {
-//                print("error saving profile_pic")
-//            }
-//        })
- 
-        
         dismiss(animated: true, completion: nil)
     }
     
